@@ -5,18 +5,21 @@ Awesome-Text-Editing
 <b>An Awesome Collection for Text-in-Image Generation and Editing / 收集和梳理图像中文字生成、替换、擦除与无痕编辑方法</b>
 </p>
 <p align="center">
-  <a href="https://github.com/leeguandong/Awesome-Text-Editing/stargazers"> <img src="https://img.shields.io/github/stars/leeguandong/Awesome-Text-Editing.svg?style=popout-square" alt="GitHub stars"></a>
+  <a href="https://github.com/leeguandong/Awesome-Text-Editing"> <img src="https://img.shields.io/github/stars/leeguandong/Awesome-Text-Editing.svg?style=popout-square" alt="GitHub stars"></a>
   <a href="https://github.com/leeguandong/Awesome-Text-Editing/issues"> <img src="https://img.shields.io/github/issues/leeguandong/Awesome-Text-Editing.svg?style=popout-square" alt="GitHub issues"></a>
   <a href="https://github.com/leeguandong/Awesome-Text-Editing/forks"> <img src="https://img.shields.io/github/forks/leeguandong/Awesome-Text-Editing.svg?style=popout-square" alt="GitHub forks"></a>
+  <a href="LICENSE"> <img src="https://img.shields.io/badge/License-Apache--2.0-blue.svg" alt="Apache-2.0 license"></a>
 </p>
 
 > A curated list of text-in-image generation and editing methods, covering scene text replacement, text insertion, text removal, multilingual visual text rendering, style-preserving editing, and visual document editing.
+
+> **Last updated / 文献截止 / 链接核验：2026-07-19** · 年份按首次公开时间记录；已确认的会议/期刊另行标注。
 
 本项目旨在收集和梳理 **图像中文字编辑（Text-in-Image Editing / Scene Text Editing）** 相关工作，包括自然场景文字替换、广告海报文字生成、文档图像文字编辑、多语言文字渲染、文字擦除与重绘、OCR / glyph / layout 约束生成，以及对应的数据集与评测基准。
 
 如果本项目能给您带来一点点帮助，麻烦点个⭐️吧～
 
-同时也欢迎大家贡献本项目未收录的论文、开源实现、数据集和 benchmark。提供新的仓库信息请发起 PR，并按照本项目格式提供论文链接、代码链接、任务类型、语言覆盖、数据集/评测信息等。
+同时也欢迎大家贡献本项目未收录的论文、开源实现、数据集和 benchmark。提供新的仓库信息请发起 PR，并按照 [CONTRIBUTING.md](CONTRIBUTING.md) 提供论文链接、官方资源、任务类型、语言覆盖、数据集/评测信息等。
 
 ## About
 
@@ -48,16 +51,17 @@ Awesome-Text-Editing
 ## 目录
 
 - [About](#about)
-- [1. 方法汇总](#1-方法汇总)
-  - [1.1 方法全景表](#11-方法全景表)
+- [最近更新](#最近更新)
+- [1. 代表工作汇总](#1-代表工作汇总)
+  - [1.1 论文与项目全景表](#11-论文与项目全景表)
   - [1.2 演化时间线](#12-演化时间线)
 - [2. 按任务分类（What to edit）](#2-按任务分类what-to-edit)
   - [2.1 Scene Text Replacement（场景文字替换）](#21-scene-text-replacement场景文字替换)
   - [2.2 Text Addition / Insertion（文字插入）](#22-text-addition--insertion文字插入)
   - [2.3 Text Removal / Erasing（文字擦除）](#23-text-removal--erasing文字擦除)
   - [2.4 Visual Text Rendering（图像文字生成）](#24-visual-text-rendering图像文字生成)
-  - [2.5 Multilingual Text Editing（多语言文字编辑）](#25-multilingual-text-editing多语言文字编辑)
-  - [2.6 Visual Document Editing（视觉文档编辑）](#26-visual-document-editing视觉文档编辑)
+  - [2.5 Multilingual Visual Text（多语言文字生成与编辑）](#25-multilingual-visual-text多语言文字生成与编辑)
+  - [2.6 Visual Document Editing（视觉文档与设计图编辑）](#26-visual-document-editing视觉文档与设计图编辑)
   - [2.7 任务 × 方法 交叉矩阵](#27-任务--方法-交叉矩阵)
 - [3. 按方法范式详述（How to edit）](#3-按方法范式详述how-to-edit)
   - [3.1 GAN / Translation-based Editing](#31-gan--translation-based-editing)
@@ -72,75 +76,117 @@ Awesome-Text-Editing
   - [4.3 常用评测指标](#43-常用评测指标)
 - [5. 开源工具与项目](#5-开源工具与项目)
 - [6. 相关方向](#6-相关方向)
-- [Star History](#star-history)
+- [Contributing](#contributing)
 - [License](#license)
 
-## 1. 方法汇总
+## 最近更新
 
-### 1.1 方法全景表
+- **2026-07-19**：补充 TextWand、Self-Prompting STE、TextFlow、WeEdit、MiLDEdit、GlyphPrinter、TextPecker 等 2026 年工作，并回补 GlyphMastero、RS-STE、TextMastero、ViTEraser 等代表性方法。
+- **2026-07-19**：增加首发年份与 venue/status 口径、训练集/评测集标记，补齐官方代码和项目页；失效资源会显式标为 unavailable，不再保留误导链接。
+- **2026-07-19**：新增贡献规范和 Apache-2.0 许可证，移除当前不可用的 Star History 图。
 
-| 方法 | 年份 | 任务 | 范式 | 语言 | 数据 / Benchmark | arXiv | 代码 |
-|------|------|------|------|------|------------------|-------|------|
-| **EnsNet** | 2018 | scene text removal | FCN + local-sensitive GAN | English / general | synthetic / ICDAR | [1812.00723](https://arxiv.org/abs/1812.00723) | - |
-| **STEFANN** | 2019 | character-level scene text editing | font adaptive generation | English | COCO-Text / ICDAR | [1903.01192](https://arxiv.org/abs/1903.01192) | - |
-| **MTRNet** | 2019 | generic scene text erasing | mask-based cGAN | Multilingual / arbitrary shape | ICDAR / MLT / CTW1500 | [1903.04092](https://arxiv.org/abs/1903.04092) | - |
-| **SRNet / Editing Text in the Wild** | 2019 | word-level replacement | style retention + inpainting | English | synthetic / ICDAR | [1908.03047](https://arxiv.org/abs/1908.03047) | - |
-| **MTRNet++** | 2019 | scene text erasing | mask-refine + coarse/fine inpainting | English / general | Oxford / SCUT | [1912.07183](https://arxiv.org/abs/1912.07183) | - |
-| **Stroke-based Text Erasing** | 2021 | scene text erasing | stroke mask prediction + inpainting | English / general | SCUT-Syn / ICDAR / SCUT-EnsText | [2104.11493](https://arxiv.org/abs/2104.11493) | - |
-| **TextStyleBrush** | 2021 | one-shot text style transfer | self-supervised style-content disentanglement | English / handwriting | Imgur5K | [2106.08385](https://arxiv.org/abs/2106.08385) | - |
-| **RewriteNet** | 2021 | style-preserving replacement | content-style decomposition | English | self-supervised real images | [2107.11041](https://arxiv.org/abs/2107.11041) | [clovaai/rewritenet](https://github.com/clovaai/rewritenet) |
-| **MOSTEL** | 2022 | stroke-level scene text editing | stroke guidance + semi-supervised | English | Tamper-Syn2k / Tamper-Scene | [2212.01982](https://arxiv.org/abs/2212.01982) | [qqqyd/MOSTEL](https://github.com/qqqyd/MOSTEL) |
-| **GlyphControl** | 2023 | controllable visual text generation | glyph conditional ControlNet | English / general | LAION-Glyph | [2305.18259](https://arxiv.org/abs/2305.18259) | - |
-| **GlyphDraw** | 2023 | visual text rendering | glyph + position conditioned diffusion | Chinese / general | custom glyph data | [2303.17870](https://arxiv.org/abs/2303.17870) | [project](https://1073521013.github.io/glyph-draw.github.io/) |
-| **DiffSTE** | 2023 | editing + insertion | diffusion + dual encoders | English | five datasets | [2304.05568](https://arxiv.org/abs/2304.05568) | [UCSB-NLP-Chang/DiffSTE](https://github.com/UCSB-NLP-Chang/DiffSTE) |
-| **TextDiffuser** | 2023 | text rendering + inpainting | layout planning + diffusion | English | MARIO-10M / MARIO-Eval | [2305.10855](https://arxiv.org/abs/2305.10855) | [aka.ms/textdiffuser](https://aka.ms/textdiffuser) |
-| **FETNet** | 2023 | scene text removal | feature erasing and transferring | English / general | Flickr-ST | [2306.09593](https://arxiv.org/abs/2306.09593) | [GuangtaoLyu/FETNet](https://github.com/GuangtaoLyu/FETNet) |
-| **AnyText** | 2023 | multilingual generation + editing | glyph / OCR embedding diffusion | Multilingual | AnyWord-3M / AnyText-benchmark | [2311.03054](https://arxiv.org/abs/2311.03054) | [tyxsspa/AnyText](https://github.com/tyxsspa/AnyText) |
-| **TextDiffuser-2** | 2023 | text rendering + layout planning | LLM planner + diffusion | English | - | [2311.16465](https://arxiv.org/abs/2311.16465) | [aka.ms/textdiffuser-2](https://aka.ms/textdiffuser-2) |
-| **UDiffText** | 2023 | visual text synthesis + editing | character-aware diffusion | English | - | [2312.04884](https://arxiv.org/abs/2312.04884) | [ZYM-PKU/UDiffText](https://github.com/ZYM-PKU/UDiffText) |
-| **Glyph-ByT5** | 2024 | accurate visual text rendering | customized ByT5 text encoder + SDXL | English | design image benchmark | [2403.09622](https://arxiv.org/abs/2403.09622) | - |
-| **LTOS** | 2024 | layout-controllable text-object synthesis | adaptive cross-attention fusion | English / general | LTOS dataset | [2404.13579](https://arxiv.org/abs/2404.13579) | - |
-| **Glyph-ByT5-v2** | 2024 | multilingual visual text rendering | multilingual ByT5 + preference learning | 10 languages | multilingual paragraph benchmark | [2406.10208](https://arxiv.org/abs/2406.10208) | - |
-| **GlyphDraw2** | 2024 | complex glyph poster generation | LLM + diffusion + triple-cross attention | English / Chinese | high-res font / poster data | [2407.02252](https://arxiv.org/abs/2407.02252) | [OPPO-Mente-Lab/GlyphDraw2](https://github.com/OPPO-Mente-Lab/GlyphDraw2) |
-| **TMIM** | 2024 | scene text removal | text-aware masked image modeling | English / general | text detection labels / SCUT-EnsText | [2409.13431](https://arxiv.org/abs/2409.13431) | [wzx99/TMIM](https://github.com/wzx99/TMIM) |
-| **TextCtrl** | 2024 | scene text editing | style-structure guidance + mutual self-attention | English | ScenePair | [2410.10133](https://arxiv.org/abs/2410.10133) | - |
-| **DiffSTR** | 2024 | scene text removal | ControlNet diffusion + mask refinement | English / general | SCUT-EnsText / SCUT-Syn | [2410.21721](https://arxiv.org/abs/2410.21721) | - |
-| **AnyText2** | 2024 | attribute-controllable generation + editing | font / color control diffusion | Multilingual | - | [2411.15245](https://arxiv.org/abs/2411.15245) | [tyxsspa/AnyText2](https://github.com/tyxsspa/AnyText2) |
-| **TextCrafter** | 2025 | complex multi-text rendering | progressive decomposition + token focus | English / general | CVTG-2K | [2503.23461](https://arxiv.org/abs/2503.23461) | - |
-| **FLUX-Text** | 2025 | multilingual scene text editing | FLUX-Fill + lightweight glyph/text embedding | Multilingual / Chinese | public STE datasets | [2505.03329](https://arxiv.org/abs/2505.03329) | - |
-| **Qwen-Image** | 2025 | text-rich generation + precise editing | MMDiT + Qwen2.5-VL dual encoding | English / Chinese / multilingual | multiple generation/editing benchmarks | [2508.02324](https://arxiv.org/abs/2508.02324) | [QwenLM/Qwen-Image](https://github.com/QwenLM/Qwen-Image) |
-| **SceneTextStylizer** | 2025 | scene text style transfer | training-free diffusion inversion + region control | English / general | style transfer evaluation | [2510.10910](https://arxiv.org/abs/2510.10910) | - |
-| **TextEditBench** | 2025 | reasoning-aware text editing benchmark | semantic expectation evaluation | English | TextEditBench | [2512.16270](https://arxiv.org/abs/2512.16270) | - |
-| **Qwen-Image-Layered** | 2025 | layered image decomposition/editability | RGB-to-RGBA layer decomposition | English / Chinese / design | PSD-derived multilayer data | [2512.15603](https://arxiv.org/abs/2512.15603) | [QwenLM/Qwen-Image-Layered](https://github.com/QwenLM/Qwen-Image-Layered) |
-| **VDE Bench** | 2026 | visual document editing benchmark | OCR parsing evaluation | English / Chinese | VDE Bench | [2602.00122](https://arxiv.org/abs/2602.00122) | - |
-| **InnoAds-Composer** | 2026 | e-commerce poster generation | subject + glyph + style tri-conditional control | Chinese / product text | e-commerce poster dataset / benchmark | [2603.05898](https://arxiv.org/abs/2603.05898) | - |
-| **Qwen-Image-2.0** | 2026 | ultra-long text-rich generation + editing | Qwen3-VL + MMDiT joint modeling | Multilingual | slides / posters / infographics / comics | [2605.10730](https://arxiv.org/abs/2605.10730) | - |
-| **MULTITEXTEDIT** | 2026 | cross-lingual text-in-image editing benchmark | language fidelity scoring | 12 languages | MULTITEXTEDIT | [2605.08163](https://arxiv.org/abs/2605.08163) | - |
-| **TextSculptor** | 2026 | scene text editing + benchmark | data construction + evaluation | English | TextSculpt-Data / TextSculpt-Bench | [2605.21090](https://arxiv.org/abs/2605.21090) | [linyiheng123/TextSculptor](https://github.com/linyiheng123/TextSculptor) |
+## 1. 代表工作汇总
 
-> 备注：会议/期刊信息仍在持续补全。为了避免误标，未确认 venue 的条目暂以年份 + arXiv 为准。
+### 1.1 论文与项目全景表
+
+| 工作 | 首发 | 类型 / 任务 | 核心机制 | 语言 / 脚本 | 数据 / Benchmark | 论文 / Venue | 官方资源 |
+|------|------|-------------|----------|-------------|------------------|--------------|----------|
+| **EnsNet** | 2018 | method · removal | FCN + local-sensitive GAN | language-agnostic | train/eval: synthetic / ICDAR | [AAAI 2019](https://arxiv.org/abs/1812.00723) | [code/data](https://github.com/HCIILAB/Scene-Text-Removal) |
+| **STEFANN** | 2019 | method · replacement | font-adaptive character generation | English | eval: COCO-Text / ICDAR | [CVPR 2020](https://arxiv.org/abs/1903.01192) | [code](https://github.com/prasunroy/stefann) |
+| **MTRNet** | 2019 | method · removal | mask-based cGAN | multilingual | eval: ICDAR / MLT / CTW1500 | [ICDAR 2019](https://arxiv.org/abs/1903.04092) | — |
+| **SRNet / Editing Text in the Wild** | 2019 | method · replacement | style retention + inpainting | English | train/eval: synthetic / ICDAR | [ACM MM 2019](https://arxiv.org/abs/1908.03047) | [code](https://github.com/youdao-ai/SRNet) |
+| **MTRNet++** | 2019 | method · removal | mask refine + coarse/fine inpainting | language-agnostic | eval: Oxford / SCUT | [CVIU 2020](https://arxiv.org/abs/1912.07183) | [code](https://github.com/neouyghur/One-stage-Mask-based-Scene-Text-Eraser) |
+| **SwapText** | 2020 | method · replacement / style transfer | source/target text swapping + reconstruction | English | eval: synthetic / real scene text | [CVPR 2020](https://arxiv.org/abs/2003.08152) | — |
+| **EraseNet** | 2020 | method · removal | coarse-to-fine erasing + segmentation guidance | language-agnostic | both: SCUT-EnsText | [TIP 2020](https://doi.org/10.1109/TIP.2020.3018859) | [code/data](https://github.com/lcy0604/EraseNet) |
+| **Stroke-Based Scene Text Erasing** | 2021 | method · removal | stroke mask prediction + inpainting | language-agnostic | eval: SCUT-Syn / ICDAR / SCUT-EnsText | [TIP 2021](https://arxiv.org/abs/2104.11493) | [code](https://github.com/tzm-tora/Stroke-Based-Scene-Text-Erasing) |
+| **PERT** | 2021 | method · removal | progressive region-based erasing | language-agnostic | eval: SCUT-EnsText | [TIP 2023](https://arxiv.org/abs/2106.13029) | [code](https://github.com/wangyuxin87/PERT) |
+| **TextStyleBrush** | 2021 | method · style transfer | self-supervised style/content disentanglement | English / handwriting | eval: Imgur5K | [SIGGRAPH 2021](https://arxiv.org/abs/2106.08385) | — |
+| **RewriteNet** | 2021 | method · replacement | content/style decomposition | English | train: self-supervised real images | [CVPRW 2022](https://arxiv.org/abs/2107.11041) | unavailable¹ |
+| **PSSTRNet** | 2022 | method · removal | progressive segmentation-guided erasing | language-agnostic | eval: SCUT-EnsText / SCUT-Syn | [ICME 2022](https://arxiv.org/abs/2306.07842) | [code](https://github.com/GuangtaoLyu/PSSTRNet) |
+| **MOSTEL** | 2022 | method · replacement | stroke guidance + semi-supervised learning | English | both: Tamper-Syn2k / Tamper-Scene | [AAAI 2023](https://arxiv.org/abs/2212.01982) | [code](https://github.com/qqqyd/MOSTEL) |
+| **GlyphDraw** | 2023 | method · rendering | glyph + position-conditioned diffusion | Chinese / English | train: custom glyph data | [arXiv](https://arxiv.org/abs/2303.17870) | [project](https://1073521013.github.io/glyph-draw.github.io/) |
+| **DiffSTE** | 2023 | method · insertion / replacement | diffusion + dual encoders | English | eval: five datasets | [arXiv](https://arxiv.org/abs/2304.05568) | [code](https://github.com/UCSB-NLP-Chang/DiffSTE) |
+| **DiffUTE** | 2023 | method · universal text editing | glyph-conditioned diffusion + background preservation | multilingual | train/eval: synthetic and public STE sets | [NeurIPS 2023](https://arxiv.org/abs/2305.10825) | [code](https://github.com/chenhaoxing/DiffUTE) |
+| **TextDiffuser** | 2023 | method · rendering / inpainting | layout planner + diffusion | English | train: MARIO-10M; eval: MARIO-Eval | [NeurIPS 2023](https://arxiv.org/abs/2305.10855) | [code](https://github.com/microsoft/unilm/tree/master/textdiffuser) |
+| **GlyphControl** | 2023 | method · rendering | glyph-conditioned ControlNet | English | both: LAION-Glyph | [NeurIPS 2023](https://arxiv.org/abs/2305.18259) | [code](https://github.com/AIGText/GlyphControl-release) |
+| **FETNet** | 2023 | method · removal | feature erasing + background transfer | language-agnostic | both: Flickr-ST | [Pattern Recognition](https://arxiv.org/abs/2306.09593) | [code](https://github.com/GuangtaoLyu/FETNet) |
+| **ViTEraser** | 2023 | method · removal | ViT encoder-decoder + SegMIM | language-agnostic | train: OCR corpora; eval: SCUT-EnsText | [AAAI 2024](https://arxiv.org/abs/2306.12106) | [code](https://github.com/shannanyinxiang/ViTEraser) |
+| **FASTER** | 2023 | method · replacement / rendering | target-mask fusion + cascaded attention | English | eval: real-world STE data | [WACV 2025](https://arxiv.org/abs/2308.02905) | — |
+| **DBEST** | 2023 | method · replacement | one-shot style adaptation + recognition guidance | English | eval: COCO-Text / ICDAR | [WACV 2024](https://arxiv.org/abs/2311.00734) | — |
+| **AnyText** | 2023 | method · generation / editing | glyph + position + OCR embedding | multilingual | train: AnyWord-3M; eval: AnyText-benchmark | [ICLR 2024](https://arxiv.org/abs/2311.03054) | [code](https://github.com/tyxsspa/AnyText) |
+| **TextDiffuser-2** | 2023 | method · rendering / layout | LLM layout planner + diffusion | English | eval: MARIO-Eval | [ECCV 2024](https://arxiv.org/abs/2311.16465) | [code](https://github.com/microsoft/unilm/tree/master/textdiffuser-2) |
+| **UDiffText** | 2023 | method · synthesis / editing | character-aware diffusion | English | eval: public rendering sets | [ECCV 2024](https://arxiv.org/abs/2312.04884) | [code](https://github.com/ZYM-PKU/UDiffText) |
+| **Brush Your Text** | 2023 | method · scene text synthesis | diffusion + masked text region conditioning | multilingual | eval: public scene-text sets | [AAAI 2024](https://arxiv.org/abs/2312.12232) | [code](https://github.com/ecnuljzhang/brush-your-text) |
+| **Glyph-ByT5** | 2024 | method · rendering | customized ByT5 encoder + SDXL | English | eval: design image benchmark | [ECCV 2024](https://arxiv.org/abs/2403.09622) | [code](https://github.com/AIGText/Glyph-ByT5) |
+| **LTOS** | 2024 | method · text-object synthesis | adaptive cross-attention fusion | English | both: LTOS dataset | [arXiv](https://arxiv.org/abs/2404.13579) | — |
+| **Glyph-ByT5-v2** | 2024 | method · rendering | multilingual ByT5 + preference learning | 10 languages | train: >1M glyph-text + 10M design pairs; eval: 1K prompts | [arXiv](https://arxiv.org/abs/2406.10208) | [code](https://github.com/AIGText/Glyph-ByT5) / [project](https://glyph-byt5-v2.github.io/) |
+| **GlyphDraw2** | 2024 | method · poster rendering | LLM + diffusion + triple-cross attention | Chinese / English | train: high-resolution poster/font data | [AAAI 2025](https://arxiv.org/abs/2407.02252) | [code](https://github.com/OPPO-Mente-Lab/GlyphDraw2) |
+| **SceneVTG** | 2024 | method · scene text generation | MLLM region/content planning + diffusion | multilingual | train/eval: generated scene-text data | [ECCV 2024](https://arxiv.org/abs/2407.14138) | [code/data](https://github.com/AlibabaResearch/AdvancedLiterateMachinery) |
+| **TextHarmony** | 2024 | model · comprehension / generation | Slide-LoRA experts | multilingual | train: DetailedTextCaps-100K | [NeurIPS 2024](https://arxiv.org/abs/2407.16364) | [code](https://github.com/bytedance/TextHarmony) |
+| **TextMastero** | 2024 | method · replacement | glyph conditioning + latent style guidance | multilingual / CJK | eval: public STE datasets | [arXiv](https://arxiv.org/abs/2408.10623) | — |
+| **TMIM** | 2024 | method · removal | text-aware masked image modeling | language-agnostic | train: detection labels; eval: SCUT-EnsText | [ECCV 2024](https://arxiv.org/abs/2409.13431) | [code](https://github.com/wzx99/TMIM) |
+| **TextCtrl** | 2024 | method · replacement | style-structure guidance + mutual self-attention | English | both: ScenePair | [NeurIPS 2024](https://arxiv.org/abs/2410.10133) | — |
+| **DiffSTR** | 2024 | method · removal | ControlNet diffusion + mask refinement | language-agnostic | eval: SCUT-EnsText / SCUT-Syn | [arXiv](https://arxiv.org/abs/2410.21721) | — |
+| **AnyText2** | 2024 | method · generation / editing | line-level font and color control | multilingual | eval: multilingual benchmarks | [arXiv](https://arxiv.org/abs/2411.15245) | [code](https://github.com/tyxsspa/AnyText2) |
+| **CharGen** | 2024 | method · generation / editing | character-level multimodal encoder + perceptual loss | Chinese / English | eval: AnyText-benchmark / MARIO-Eval | [arXiv](https://arxiv.org/abs/2412.17225) | — |
+| **SceneVTG++** | 2025 | method · scene text generation | MLLM planner + controllable local diffusion | multilingual | train/eval: scene-text data | [arXiv](https://arxiv.org/abs/2501.02962) | — |
+| **RS-STE** | 2025 | method · replacement | recognition-synergistic parallel decoder | English | train: RS-STE-Dataset; eval: public STE sets | [CVPR 2025](https://arxiv.org/abs/2503.08387) | [code](https://github.com/ZhengyaoFang/RS-STE) |
+| **TextInVision** | 2025 | benchmark · visual text generation | text/prompt complexity + VAE diagnosis | multilingual | eval: TextInVision | [arXiv](https://arxiv.org/abs/2503.13730) | — |
+| **TextCrafter** | 2025 | method · complex rendering | constrained RL + quotation-guided attention | English | eval: CVTG-2K (2K prompts) / CVTG-Hard (400) | [arXiv](https://arxiv.org/abs/2503.23461) | [code](https://github.com/NJU-PCALab/TextCrafter) |
+| **FLUX-Text** | 2025 | method · replacement | FLUX-Fill + lightweight glyph/text embedding | multilingual / Chinese | eval: public STE datasets | [arXiv](https://arxiv.org/abs/2505.03329) | [code](https://github.com/AMAP-ML/FluxText) |
+| **GlyphMastero** | 2025 | method · replacement | hierarchical stroke/character glyph encoder | multilingual / Chinese | eval: public STE datasets | [CVPR 2025](https://arxiv.org/abs/2505.04915) | — |
+| **FontAdapter** | 2025 | method · font-conditioned generation / editing | reference-glyph curriculum adaptation | cross-lingual | train: synthetic font curricula | [arXiv](https://arxiv.org/abs/2506.05843) | [project](https://fontadapter.github.io/) |
+| **Qwen-Image** | 2025 | foundation model · generation / editing | MMDiT + Qwen2.5-VL dual encoding | multilingual / Chinese | eval: multiple generation/editing benchmarks | [technical report](https://arxiv.org/abs/2508.02324) | [code](https://github.com/QwenLM/Qwen-Image) |
+| **OTR** | 2025 | dataset · overlay text removal | controllable overlay synthesis + clean ground truth | language-agnostic | both: OTR dataset | [ACM MM 2025](https://arxiv.org/abs/2510.02787) | [data](https://huggingface.co/datasets/cyberagent/OTR) |
+| **SceneTextStylizer** | 2025 | method · style transfer | training-free inversion + region control | language-agnostic | eval: style-transfer set | [arXiv](https://arxiv.org/abs/2510.10910) | — |
+| **OmniText** | 2025 | method · general text-image manipulation | training-free attention control + latent losses | Latin / alphanumeric | eval: OmniText-Bench | [ICLR 2026](https://arxiv.org/abs/2510.24093) | [code/bench](https://github.com/KAIST-VICLab/OmniText) |
+| **STELLAR** | 2025 | method · low-resource replacement | language-adaptive glyph encoder + synthetic-to-real training | multilingual / low-resource | both: STIPLAR; eval: TAS | [AAAI 2026 Workshop](https://arxiv.org/abs/2511.09977) | — |
+| **TripleFDS** | 2025 | method · replacement / attribute transfer | content/style/background disentanglement | English / alphanumeric | train: SCB Synthesis (1M images / 125K groups) | [AAAI 2026](https://arxiv.org/abs/2511.13399) | [code](https://github.com/yusenbao01/TripleFDS) |
+| **GLASTE** | 2025 | method · replacement | global-local modeling + size-independent style vector | English | eval: public STE datasets | [ICME 2025](https://arxiv.org/abs/2512.03574) | — |
+| **TextEditBench** | 2025 | benchmark · reasoning-aware editing | semantic expectation evaluation | multilingual / mixed-script | eval: 1,196 instances / 12 subtasks | [NeurIPS 2025](https://arxiv.org/abs/2512.16270) | — |
+| **UTDesign** | 2025 | framework · graphic design editing / generation | RGBA glyph DiT + MLLM layout planner | Chinese / English | train: SynthGlyph / DesignText; eval: UTDesign-Bench | [SIGGRAPH Asia 2025](https://arxiv.org/abs/2512.20479) | [code/data](https://github.com/ZYM-PKU/UTDesign) |
+| **MiLDEdit / MiLDEAgent** | 2026 | framework · multi-layer document editing | RL-trained layer reasoner + image editor | multilingual design docs | eval: MiLDEBench (>20K documents) | [arXiv](https://arxiv.org/abs/2601.04589) | — |
+| **UM-Text** | 2026 | model · instruction-based text editing | VLM planner + UM-Encoder + regional loss | Chinese / English | train: UM-DATA-200K; eval: UMT-Benchmark | [AAAI 2026](https://arxiv.org/abs/2601.08321) | — |
+| **VDE Bench** | 2026 | benchmark · visual document editing | OCR parsing evaluation | Chinese / English | eval: 942 samples | [arXiv](https://arxiv.org/abs/2602.00122) | [code/data](https://github.com/zion-zion-zion/VDE-Bench) |
+| **TextPecker** | 2026 | method · rendering optimization | structural-anomaly reward + RL | Chinese / English | train: TextPecker-1.5M | [CVPR 2026](https://arxiv.org/abs/2602.20903) | [code/data](https://github.com/CIawevy/TextPecker) |
+| **InnoAds-Composer** | 2026 | method · e-commerce poster generation | subject + glyph + style tri-conditioning | Chinese | both: e-commerce poster data / benchmark | [CVPR 2026](https://arxiv.org/abs/2603.05898) | — |
+| **WeEdit** | 2026 | framework · text-centric image editing | glyph-guided SFT + multi-objective RL | 15 languages | train: 330K pairs; eval: bilingual / multilingual 2K each | [arXiv](https://arxiv.org/abs/2603.11593) | [code/bench](https://github.com/HuiZhang0812/WeEdit) |
+| **GlyphPrinter** | 2026 | method · rendering optimization | region-grouped DPO + regional guidance | multilingual | train: GlyphCorrector | [CVPR 2026 Highlight](https://arxiv.org/abs/2603.15616) | [code/data](https://github.com/FudanCVL/GlyphPrinter) / [project](https://henghuiding.com/GlyphPrinter/) |
+| **TextFlow** | 2026 | method · replacement | training-free flow steering + attention boost | multilingual | eval: public STE datasets | [CVPR 2026](https://arxiv.org/abs/2603.24571) | [code](https://github.com/lyb18758/TextFlow) |
+| **Edit Fidelity Field** | 2026 | method · preservation | OCR-aware continuous fidelity field | language-agnostic | eval: 50 scenes / spillover protocol | [arXiv](https://arxiv.org/abs/2604.17500) | — |
+| **POCA** | 2026 | method · rendering alignment | Pareto-optimal multi-reward curriculum | multilingual | train: multi-reward prompt curriculum | [CVPR 2026](https://arxiv.org/abs/2604.24171) | — |
+| **MULTITEXTEDIT** | 2026 | benchmark · cross-lingual editing | language/script fidelity scoring | 12 languages | eval: 5 domains / 7 edit types | [arXiv](https://arxiv.org/abs/2605.08163) | — |
+| **Qwen-Image-2.0** | 2026 | foundation model · generation / editing | Qwen3-VL + MMDiT joint modeling | multilingual | eval: slides / posters / infographics / comics | [technical report](https://arxiv.org/abs/2605.10730) | — |
+| **StyleTextGen** | 2026 | method · style-conditioned generation | dual-branch style encoder + mask guidance | multilingual | eval: StyleText-CE | [CVPR 2026](https://arxiv.org/abs/2605.14708) | — |
+| **Self-Prompting STE** | 2026 | method · replacement | self-derived glyph/style prompts + MM-DiT ICL | multilingual / open vocabulary | train: self-supervised + paired refinement | [ICML 2026](https://arxiv.org/abs/2605.15523) | [project](https://hongxiii.github.io/mstedit/) |
+| **TextSculptor** | 2026 | framework · generation / editing / benchmark | automated data construction + tailored evaluation | English | train: TextSculpt-Data (3.2M); eval: TextSculpt-Bench | [arXiv](https://arxiv.org/abs/2605.21090) | [code/data](https://github.com/linyiheng123/TextSculptor) |
+| **TextWand** | 2026 | method · unified generation / replacement / removal | ORPE + region-adaptive suppression | Chinese / English / symbols | train: TextWand-72K; eval: TextWand-Bench (1.5K) | [arXiv](https://arxiv.org/abs/2606.05730) | — |
+| **Mind the Gap** | 2026 | analysis · edit-constraint discovery | 19-type causal dependency diagnostic | multilingual scenes | eval: 461 diagnostic cases | [arXiv](https://arxiv.org/abs/2606.15982) | — |
+| **Boogu-Image-0.1** | 2026 | foundation model · generation / editing | unified model family + agentic inference scaling | Chinese / English | train: 208.62M unique images | [technical report](https://arxiv.org/abs/2607.13125) | [code](https://github.com/Boogu-Project/Boogu-Image) |
+
+> **口径说明**：`首发` 指首次公开年份，`论文 / Venue` 仅在官方页面可确认时标注录用 venue；`train` / `eval` / `both` 区分训练资源和评测资源；`—` 表示截至核验日未找到官方公开资源。STR 在本文中专指 **Scene Text Removal**。¹ RewriteNet 论文中的官方仓库已不可访问，因此不再提供失效链接。
 
 ### 1.2 演化时间线
 
 ```
-2018  EnsNet                                  (end-to-end scene text removal)
-2019  STEFANN / SRNet                         (早期字符级、词级场景文字编辑)
-2019  MTRNet / MTRNet++                       (mask-based generic text erasing)
-2021  RewriteNet                              (内容-风格隐式解耦)
-2021  TextStyleBrush                          (one-shot text style transfer)
-2022  MOSTEL                                  (stroke-level guidance + 半监督真实图适配)
-2023  GlyphDraw / GlyphControl / DiffSTE      (glyph 条件生成 / diffusion 进入 scene text editing)
-2023  TextDiffuser / AnyText / UDiffText      (大规模 OCR 数据 + 多语言 + 字符级编码)
-2023  FETNet                                  (feature erasing/transferring for STR)
-2023  TextDiffuser-2                          (LLM layout planning)
-2024  Glyph-ByT5 / Glyph-ByT5-v2 / GlyphDraw2 (定制 text encoder，长文本、多语言和海报渲染)
-2024  TextCtrl / AnyText2 / LTOS              (style-structure guidance / 字体颜色属性 / text-object layout)
-2024  TMIM / DiffSTR                          (弱监督和 diffusion-based scene text removal)
-2025  TextCrafter / FLUX-Text / Qwen-Image    (复杂多文字渲染 / multilingual STE / 强基座模型)
-2025  SceneTextStylizer / TextEditBench       (训练无关文字风格迁移 / reasoning-aware evaluation)
-2026  VDE Bench / MULTITEXTEDIT               (视觉文档编辑 / 跨语言脚本保真)
-2026  Qwen-Image-2.0 / InnoAds-Composer       (长文本视觉内容 / 电商海报三条件控制)
-2026  TextSculptor                            (大规模 paired editing data + 四任务 benchmark)
+2018  EnsNet                                      (end-to-end scene text removal)
+2019  MTRNet / SRNet / MTRNet++                   (mask-based erasing + word-level replacement)
+2020  STEFANN / SwapText / EraseNet               (字符/词级风格保持与端到端擦除)
+2021  Stroke Erasing / PERT / TextStyleBrush      (显式笔画、渐进区域擦除与 one-shot 风格迁移)
+2022  PSSTRNet / MOSTEL                           (segmentation / stroke guidance + 真实域适配)
+2023  GlyphDraw / DiffUTE / DiffSTE               (glyph 条件与 diffusion 进入通用文字编辑)
+2023  TextDiffuser / AnyText / UDiffText           (大规模 OCR 数据、多语言与字符级编码)
+2024  TextDiffuser-2 / Glyph-ByT5 / TextHarmony   (LLM layout planning + 定制 text encoder)
+2024  TextMastero / TextCtrl / AnyText2            (多语言字形、风格结构与属性控制)
+2024  ViTEraser / TMIM / DiffSTR                   (ViT / masked modeling / diffusion removal)
+2025  RS-STE / GlyphMastero / FLUX-Text            (识别协同与复杂字形的高保真替换)
+2025  TextCrafter / FontAdapter / Qwen-Image       (复杂多文字、字体适配与强基座模型)
+2025  OmniText / TripleFDS / UTDesign              (通用操作、属性解耦与设计图层编辑)
+2026  UM-Text / MiLDEdit / WeEdit                  (自然语言、多层文档与多语言系统化训练)
+2026  TextPecker / GlyphPrinter / POCA             (结构感知 reward / preference optimization)
+2026  TextFlow / EFF / Self-Prompting STE          (训练无关编辑、spillover 控制与 in-context editing)
+2026  TextSculptor / TextWand                      (大规模 paired data + 统一生成/替换/擦除 benchmark)
+2026  Qwen-Image-2.0 / Boogu-Image-0.1             (长文本、双语渲染与统一生成编辑基座)
 ```
 
 ## 2. 按任务分类（What to edit）
@@ -154,15 +200,20 @@ Awesome-Text-Editing
 | 方法 | 主要特点 |
 |------|----------|
 | **STEFANN** | 字符级替换，使用 font adaptive network 保持字体结构，ColorNet 保持颜色 |
-| **SRNet** | word-level 替换，拆成 text conversion、background inpainting、fusion 三个模块 |
+| **SRNet / SwapText** | 早期 word-level 替换与文字交换框架，显式处理文字转换、背景补全和风格融合 |
 | **RewriteNet** | 通过识别任务诱导 content / style decomposition，并用 self-supervised real-image training 缓解域差 |
 | **TextStyleBrush** | one-shot 学习单个文字样例的外观风格，再迁移到新内容 |
 | **MOSTEL** | 使用 stroke guidance map 显式告诉模型哪些笔画需要修改 |
-| **DiffSTE** | 使用 character encoder 增强文字正确性，instruction encoder 控制风格 |
-| **TextCtrl** | style-structure guidance + glyph-adaptive mutual self-attention，强调 style fidelity |
-| **FLUX-Text** | 基于 FLUX-Fill 的轻量 glyph/text embedding，面向中英文等复杂字形编辑 |
-| **Qwen-Image** | 基座模型层面强化复杂文字渲染和精确编辑，尤其关注中文等 logographic scripts |
-| **TextSculptor** | 把 replacement 作为四大基本任务之一，用 paired editing data 训练和评测 |
+| **RS-STE** | 将文字识别与图像编辑放进统一并行 decoder，并用循环自监督适配真实图像 |
+| **DiffSTE / DiffUTE / DBEST** | 分别从双编码器、通用 glyph 条件和 one-shot style adaptation 推进 diffusion replacement |
+| **TextMastero / TextCtrl** | 用 glyph、latent style 与 style-structure guidance 提升复杂脚本和风格保真 |
+| **FLUX-Text / GlyphMastero** | 面向中英文复杂字形，加入轻量 glyph embedding 或层次化笔画/字符编码 |
+| **OmniText / TripleFDS** | 覆盖训练无关通用操作，以及 content/style/background 三属性解耦和交换 |
+| **STELLAR / GLASTE** | 分别面向低资源多语言的 synthetic-to-real 适配，以及大幅长度变化下的 global-local consistency |
+| **TextFlow / Edit Fidelity Field** | 训练无关 flow steering 完成替换，连续 fidelity field 抑制对邻近文字的误改 |
+| **Self-Prompting STE** | 从原图直接构造 glyph/style prompt，以 MM-DiT in-context learning 做开放词表编辑 |
+| **UM-Text / WeEdit** | 用 VLM 规划和 glyph-guided SFT/RL 支持自然语言、翻译、组合与 reasoning 编辑 |
+| **TextSculptor / TextWand** | 用大规模 paired data 和统一模型覆盖 replacement，并提供专用 benchmark |
 
 ### 2.2 Text Addition / Insertion（文字插入）
 
@@ -174,9 +225,12 @@ Awesome-Text-Editing
 | **TextDiffuser** | 先生成文字布局，再用 diffusion 生成包含文字的图像 |
 | **TextDiffuser-2** | 用 LLM 规划关键词和 layout，支持聊天式 layout 修改 |
 | **AnyText / AnyText2** | 通过位置、glyph、masked image 等条件实现文字生成和编辑 |
+| **OmniText / TextWand** | 在同一框架中支持插入、位置/尺度调整、样式参考及背景保持 |
+| **UM-Text / WeEdit** | 由自然语言或多轮指令驱动新增、重排、翻译和组合编辑 |
+| **UTDesign** | 先生成透明 RGBA stylized glyph foreground，再合成进海报和广告等设计图 |
 | **Qwen-Image / Qwen-Image-2.0** | 面向 posters、slides、infographics 等 text-rich 内容生成和编辑 |
 | **InnoAds-Composer** | 同时控制商品主体、glyph 文字和风格，面向电商海报生成 |
-| **TextSculptor** | 将 text addition 纳入标准 benchmark 任务 |
+| **TextSculptor / TextWand / WeEdit-Bench** | 将 addition 纳入标准训练和评测协议 |
 
 ### 2.3 Text Removal / Erasing（文字擦除）
 
@@ -185,15 +239,17 @@ Awesome-Text-Editing
 | 方法 | 主要特点 |
 |------|----------|
 | **EnsNet** | 端到端 FCN-ResNet + local-sensitive GAN，早期 scene text removal 代表方法 |
-| **MTRNet / MTRNet++** | mask-based cGAN / 多分支 mask-refine + coarse/fine inpainting，可处理用户指定文字区域 |
+| **MTRNet / MTRNet++ / EraseNet** | mask-based cGAN、mask refine 与 coarse-to-fine inpainting，可处理用户指定或自动定位的文字区域 |
 | **SRNet** | 显式包含 background inpainting module |
-| **Stroke-based Text Erasing** | 预测 stroke mask 后再补背景，缩小 inpainting hole 以保留更多背景 |
+| **Stroke-Based Erasing / PERT** | 用 stroke mask 或 progressive region guidance 限定修改范围，兼顾擦除完整性和背景保持 |
+| **PSSTRNet / ViTEraser** | segmentation-guided progressive erasing 与 ViT + SegMIM 两条高效端到端路线 |
 | **FETNet** | 在 feature 层做 text feature erasing 和 background feature transferring |
 | **TMIM** | 用低成本 text detection label 进行 text-aware masked image modeling 预训练 |
 | **DiffSTR** | 将 STR 建模为受控 diffusion inpainting，并强化 mask refinement |
-| **TextDiffuser** | 支持 text inpainting / reconstruction 设定 |
-| **AnyText** | masked image 条件可用于文字区域重绘 |
-| **TextSculptor** | 将 text removal 作为独立基本任务评测 |
+| **OmniText** | 通过 self-attention inversion 进行 training-free removal，并减少文字幻觉 |
+| **TextWand** | 以 Region-Adaptive Suppression 做干净擦除，与文字生成/替换共用统一模型 |
+| **OTR dataset** | 提供复杂背景、域外 overlay text 与 clean ground truth，用于训练和评估擦除方法 |
+| **TextSculptor / TextWand-Bench** | 将 removal 作为独立基本任务，联合评估擦除质量和背景保持 |
 
 ### 2.4 Visual Text Rendering（图像文字生成）
 
@@ -210,11 +266,15 @@ Awesome-Text-Editing
 | **Glyph-ByT5-v2** | 扩展到 10 种语言并提升美学质量 |
 | **GlyphDraw2** | LLM + diffusion 自动生成中英文复杂 glyph poster，并支持字体和高分辨率 |
 | **LTOS** | 将 visual text rendering 与 object layout generation 合并为 text-object synthesis |
-| **TextCrafter** | 面向复杂场景中多区域、多文字内容的准确渲染，提出 CVTG-2K |
-| **Qwen-Image / Qwen-Image-2.0** | 基座模型级文字渲染能力，覆盖长文本、中文、海报、幻灯片和信息图 |
+| **SceneVTG / SceneVTG++** | 用 MLLM 规划自然场景中的合理文字位置和内容，并支持多语言属性控制 |
+| **CharGen / GlyphMastero** | 从 character-level multimodal encoding 和层次化 glyph encoding 提升复杂笔画准确性 |
+| **TextCrafter** | 以 constrained RL 和 quotation-guided attention 处理多区域、多文字混淆，并提出 CVTG-2K |
+| **FontAdapter / StyleTextGen** | 支持参考字体快速适配、跨语言 font transfer 和双语/跨语言风格复刻 |
+| **TextPecker / GlyphPrinter / POCA** | 用结构异常 reward、region-grouped DPO 与 Pareto curriculum 改善 glyph accuracy 与美学平衡 |
+| **Qwen-Image / Qwen-Image-2.0 / Boogu-Image-0.1** | 基座模型级文字渲染，覆盖长文本、中文、海报、幻灯片和信息图 |
 | **AnyText / AnyText2** | 面向开放域 multilingual visual text generation |
 
-### 2.5 Multilingual Text Editing（多语言文字编辑）
+### 2.5 Multilingual Visual Text（多语言文字生成与编辑）
 
 **目标**：支持中文、英文以外的脚本与语言，包括变音符、RTL、复杂连写、混合脚本等。
 
@@ -224,38 +284,45 @@ Awesome-Text-Editing
 | **AnyText2** | 在 multilingual 基础上加入字体、颜色等属性控制 |
 | **Glyph-ByT5-v2** | 支持 10 种语言的 visual text rendering |
 | **FLUX-Text** | 以较少训练样本增强 FLUX-Fill 的 multilingual scene text editing，强调中文复杂字形 |
+| **SceneVTG++ / StyleTextGen** | 分别关注自然场景中的可控多语言渲染，以及 monolingual / cross-lingual style consistency |
+| **FontAdapter** | 通过参考 glyph 支持 unseen font、cross-lingual font transfer 与字体混合 |
+| **STELLAR** | 以 language-adaptive glyph encoder、STIPLAR 和 TAS 指标关注 low-resource scripts |
+| **WeEdit** | 330K 训练对覆盖 15 种语言，配套中英双语和 15 语 benchmark |
+| **UM-Text / UTDesign** | 覆盖中英文自然语言编辑、跨语言翻译与 graphic-design glyph 生成 |
+| **Self-Prompting STE / TextWand** | 面向开放词表、多语言复杂字形以及中英/符号的风格保持编辑 |
 | **Qwen-Image / Qwen-Image-2.0** | 通过大规模数据和渐进训练强化中英等多语言 text-rich generation/editing |
 | **VDE Bench** | 覆盖中英文复杂视觉文档编辑 |
-| **MULTITEXTEDIT** | 12 种语言、5 个视觉域、7 类编辑操作，专门评估跨语言退化 |
+| **MULTITEXTEDIT** | 3,600 个实例、12 种语言、5 个视觉域、7 类编辑操作，专门评估跨语言退化 |
 
-### 2.6 Visual Document Editing（视觉文档编辑）
+### 2.6 Visual Document Editing（视觉文档与设计图编辑）
 
 **目标**：编辑海报、PPT、论文截图、试卷、报纸、表单等密集文字文档。相比自然场景文字，文档编辑更强调布局、阅读顺序、局部结构和 OCR parsing。
 
 | 方法 / Benchmark | 主要特点 |
 |------------------|----------|
 | **TextEditBench** | 强调 reasoning-aware text editing，不只看能否写对，还看语义和物理合理性 |
-| **VDE Bench** | 面向视觉文档修改，覆盖中英文 dense document 场景 |
+| **VDE Bench** | 942 个中英文 dense-document 样本，并用 OCR parsing 做细粒度评估 |
+| **MiLDEdit / MiLDEAgent** | 对海报等多层设计文档做 layer-aware reasoning、目标层定位和协同修改 |
+| **UTDesign** | 统一 stylized text editing、conditional generation 与 text-to-design pipeline |
+| **UM-Text / WeEdit** | 从自然语言理解、layout planning、翻译、重排和 reasoning 角度编辑 text-rich images |
 | **Qwen-Image-2.0** | 面向 slides、posters、infographics、comics 等 text-rich 内容生成和编辑 |
 | **InnoAds-Composer** | 面向电商产品海报，联合控制商品主体、文字和设计风格 |
-| **MULTITEXTEDIT** | 从跨语言角度评估 text-in-image editing 的脚本保真 |
-| **TextSculptor** | 提供标准化 addition / replacement / removal / hybrid editing benchmark |
 
 ### 2.7 任务 × 方法 交叉矩阵
 
-| 任务 \ 方法 | GAN / Translation | Decomposition | Stroke / Glyph | Diffusion | LLM / MLLM Planning | Benchmark-first |
-|-------------|:-----------------:|:-------------:|:--------------:|:---------:|:-------------------:|:---------------:|
-| **Replacement** | STEFANN / SRNet | RewriteNet / TextStyleBrush | MOSTEL / TextCtrl | DiffSTE / AnyText / AnyText2 / FLUX-Text | Qwen-Image | TextSculptor |
-| **Addition** | - | - | AnyText / GlyphControl | TextDiffuser / DiffSTE / AnyText / Qwen-Image | TextDiffuser-2 / Qwen-Image-2.0 / InnoAds | TextSculptor |
-| **Removal** | SRNet / EnsNet / MTRNet | FETNet | Stroke-based Erasing | DiffSTR / TextDiffuser / AnyText | - | TextSculptor |
-| **Rendering** | - | - | GlyphDraw / GlyphControl / Glyph-ByT5 | TextDiffuser / UDiffText / AnyText / TextCrafter / Qwen-Image | TextDiffuser-2 / GlyphDraw2 / LTOS | MARIO-Eval / CVTG-2K |
-| **Multilingual** | - | - | GlyphDraw / Glyph-ByT5-v2 / FLUX-Text | AnyText / AnyText2 / Qwen-Image | Qwen-Image-2.0 | VDE Bench / MULTITEXTEDIT |
-| **Document / Poster Editing** | - | - | OCR / layout / glyph guided | text-aware image editors / Qwen-Image | Qwen-Image-2.0 / InnoAds / LTOS | TextEditBench / VDE Bench |
+| 任务 \ 方法 | GAN / Translation | Decomposition / Recognition | Stroke / Glyph / Layout | Diffusion / Flow | MLLM / Agent | Data / Benchmark |
+|-------------|:-----------------:|:---------------------------:|:-----------------------:|:----------------:|:------------:|:----------------:|
+| **Replacement** | STEFANN / SRNet / SwapText | RewriteNet / RS-STE / TripleFDS | MOSTEL / TextCtrl / GlyphMastero | DiffSTE / DiffUTE / FLUX-Text / OmniText / TextFlow / Self-Prompting STE / TextWand | UM-Text / Qwen-Image | ScenePair / TextSculpt / WeEdit / TextWand |
+| **Addition** | — | — | GlyphControl / AnyText / UTDesign | DiffSTE / OmniText / TextWand | TextDiffuser-2 / UM-Text / WeEdit / Qwen-Image | TextSculpt / WeEdit-Bench |
+| **Removal** | EnsNet / MTRNet / EraseNet | FETNet | Stroke Erasing / PERT / PSSTRNet | DiffSTR / OmniText / TextWand | WeEdit | SCUT-EnsText / TextSculpt / TextWand |
+| **Rendering** | — | FontAdapter | GlyphDraw / Glyph-ByT5 / CharGen / GlyphPrinter | TextDiffuser / AnyText / TextCrafter / StyleTextGen | SceneVTG / TextDiffuser-2 / GlyphDraw2 | MARIO-Eval / CVTG-2K / TextInVision |
+| **Multilingual** | — | — | GlyphDraw / Glyph-ByT5-v2 / GlyphMastero | AnyText / FLUX-Text / StyleTextGen / Self-Prompting STE | UM-Text / WeEdit / Qwen-Image | MULTITEXTEDIT / UMT / WeEdit-Bench |
+| **Document / Poster** | — | layer / attribute disentanglement | UTDesign / glyph-layout control | Qwen-Image / Boogu-Image | MiLDEAgent / UM-Text / InnoAds | TextEditBench / VDE / MiLDEBench |
 
 > **怎么读这张表**：
 > - 横向看：同一个任务下有哪些技术路线。
 > - 纵向看：同一种方法范式主要覆盖哪些任务。
-> - 当前最活跃的区域是 **Diffusion + glyph/OCR/layout conditioning + benchmark-first evaluation**。
+> - 当前最活跃的区域是 **Diffusion/flow + glyph/OCR/layout conditioning + MLLM planning + benchmark-driven evaluation**。
 
 ## 3. 按方法范式详述（How to edit）
 
@@ -279,6 +346,10 @@ Awesome-Text-Editing
   * 论文：[MTRNet](https://arxiv.org/abs/1903.04092) / [MTRNet++](https://arxiv.org/abs/1912.07183)
   * 简介：mask-based text eraser。MTRNet++ 加入 mask-refine、coarse inpainting、fine inpainting 和 attention blocks，可支持有 mask 或无外部 mask 的文字擦除。
 
+* **SwapText / EraseNet**：
+  * 论文：[SwapText](https://arxiv.org/abs/2003.08152) / [EraseNet](https://doi.org/10.1109/TIP.2020.3018859)
+  * 简介：SwapText 将 scene text replacement 建模为 source/target text swapping；EraseNet 则以 segmentation guidance 和 coarse-to-fine decoder 端到端擦除文字。
+
 ### 3.2 Decomposition / Stroke / Style Guidance
 
 这类方法显式或隐式地把文字内容、字体风格、背景、笔画结构拆开，核心目标是减少"改字但丢风格"的问题。
@@ -288,9 +359,8 @@ Awesome-Text-Editing
   * 简介：从单个文字样例中抽取 appearance representation，并迁移到新内容上。它不完全等同于 scene text editing，但对 style-preserving text replacement 很关键。
 
 * **RewriteNet**：
-  * 地址：https://github.com/clovaai/rewritenet ![](https://img.shields.io/github/stars/clovaai/rewritenet.svg)
   * 论文：[arXiv 2107.11041](https://arxiv.org/abs/2107.11041)
-  * 简介：通过 scene text recognition 引导模型区分 content 和 style，并使用 self-supervised training 利用真实未标注图像。
+  * 简介：通过 scene text recognition 引导模型区分 content 和 style，并使用 self-supervised training 利用真实未标注图像。论文给出的官方代码链接截至 2026-07-19 已失效。
 
 * **MOSTEL**：
   * 地址：https://github.com/qqqyd/MOSTEL ![](https://img.shields.io/github/stars/qqqyd/MOSTEL.svg)
@@ -306,6 +376,18 @@ Awesome-Text-Editing
   * 论文：[arXiv 2306.09593](https://arxiv.org/abs/2306.09593)
   * 简介：面向 scene text removal。提出 Feature Erasing Module 和 Feature Transferring Module，在 encoder feature 层擦除文字信息并迁移背景特征。
 
+* **Stroke-Based Erasing / PERT**：
+  * 论文：[Stroke-Based](https://arxiv.org/abs/2104.11493) / [PERT](https://arxiv.org/abs/2106.13029)
+  * 简介：前者缩小到 stroke-level hole 再补背景，后者用 progressive region modification 平衡 background integrity 与 erasure exhaustivity。
+
+* **RS-STE / TripleFDS**：
+  * 论文：[RS-STE](https://arxiv.org/abs/2503.08387) / [TripleFDS](https://arxiv.org/abs/2511.13399)
+  * 简介：RS-STE 让 recognition 与 editing 在并行 decoder 中协同；TripleFDS 显式拆分 content、style、background，并支持风格替换与背景迁移。
+
+* **STELLAR / GLASTE**：
+  * 论文：[STELLAR](https://arxiv.org/abs/2511.09977) / [GLASTE](https://arxiv.org/abs/2512.03574)
+  * 简介：STELLAR 用 language-adaptive glyph encoder、STIPLAR 和 TAS 支持低资源脚本；GLASTE 用 global-local features 和尺寸无关 style vector 处理长短差异明显的替换。
+
 ### 3.3 Diffusion-based Text Editing
 
 Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑，但也带来新的挑战：文字容易写错，非编辑区域容易漂移。
@@ -315,8 +397,13 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[arXiv 2304.05568](https://arxiv.org/abs/2304.05568)
   * 简介：双编码器设计：character encoder 提升文字可读性，instruction encoder 控制风格，支持文字插入和编辑。
 
+* **DiffUTE**：
+  * 地址：https://github.com/chenhaoxing/DiffUTE
+  * 论文：[NeurIPS 2023](https://arxiv.org/abs/2305.10825)
+  * 简介：把 glyph condition 和背景保持统一到 diffusion editing 中，支持 insertion、replacement 等通用文字编辑操作。
+
 * **TextDiffuser**：
-  * 地址：https://aka.ms/textdiffuser
+  * 地址：https://github.com/microsoft/unilm/tree/master/textdiffuser
   * 论文：[arXiv 2305.10855](https://arxiv.org/abs/2305.10855)
   * 简介：先生成关键词布局，再让 diffusion 根据 layout 生成文字图像。贡献 MARIO-10M 和 MARIO-Eval，是视觉文字生成的重要基线。
 
@@ -335,6 +422,7 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 简介：把 scene text removal 建模成 ControlNet diffusion inpainting，并用 mask pretraining 和 segmentation-based mask refinement 提升边界与纹理一致性。
 
 * **FLUX-Text**：
+  * 地址：https://github.com/AMAP-ML/FluxText
   * 论文：[arXiv 2505.03329](https://arxiv.org/abs/2505.03329)
   * 简介：基于 FLUX-Fill 的 multilingual scene text editing baseline。通过轻量 glyph 和 text embedding module 增强复杂字形理解，用较少训练样本取得强编辑效果。
 
@@ -347,6 +435,28 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[arXiv 2605.10730](https://arxiv.org/abs/2605.10730)
   * 简介：统一高保真生成和精确编辑，面向 ultra-long text rendering、multilingual typography、slides、posters、infographics、comics 等 text-rich 内容。
 
+* **OmniText**：
+  * 地址：https://github.com/KAIST-VICLab/OmniText
+  * 论文：[ICLR 2026](https://arxiv.org/abs/2510.24093)
+  * 简介：基于 TextDiffuser-2 做 training-free attention inversion/redistribution 与 latent optimization，统一 removal、insertion、style editing、repositioning 和 rescaling。
+
+* **TextFlow / Edit Fidelity Field**：
+  * 论文：[TextFlow](https://arxiv.org/abs/2603.24571) / [EFF](https://arxiv.org/abs/2604.17500)
+  * 简介：TextFlow 用 flow manifold steering 与 attention boost 做 training-free replacement；EFF 用 OCR-aware continuous field 将目标区、邻近文字和背景分级保护，量化并降低 edit spillover。
+
+* **Self-Prompting STE**：
+  * 项目：https://hongxiii.github.io/mstedit/
+  * 论文：[ICML 2026](https://arxiv.org/abs/2605.15523)
+  * 简介：直接从源图构造 glyph/style prompts，以 MM-DiT in-context learning 实现开放词表和多语言风格保持编辑。
+
+* **TextWand**：
+  * 论文：[arXiv 2606.05730](https://arxiv.org/abs/2606.05730)
+  * 简介：把 rendering 与 erasure 作为两个原子能力统一建模；ORPE 控制像素级 layout/参考风格，RAS 负责干净擦除，并配套 TextWand-Bench。
+
+* **UM-Text / WeEdit**：
+  * 论文：[UM-Text](https://arxiv.org/abs/2601.08321) / [WeEdit](https://arxiv.org/abs/2603.11593)
+  * 简介：UM-Text 用 VLM 自动规划 content/layout 和组合条件；WeEdit 以 330K 多语言样本做 glyph-guided SFT 与 multi-objective RL，覆盖八类 text-centric edits。
+
 ### 3.4 Glyph / OCR / Layout Guided Rendering
 
 这类方法的共同点是承认普通文本编码器不足以精确控制字形，因此引入 glyph、OCR、character encoder 或 layout planner。
@@ -357,15 +467,17 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 简介：为复杂字形结构提供 glyph 和 position 条件，重点解决中文等复杂字符在 text-to-image 模型中的准确渲染。
 
 * **GlyphControl**：
+  * 地址：https://github.com/AIGText/GlyphControl-release
   * 论文：[arXiv 2305.18259](https://arxiv.org/abs/2305.18259)
   * 简介：在 off-the-shelf Stable Diffusion 上加入 glyph conditional control，使用户可以控制文字内容、位置和大小，并构建 LAION-Glyph 训练 benchmark。
 
 * **TextDiffuser-2**：
-  * 地址：https://aka.ms/textdiffuser-2
+  * 地址：https://github.com/microsoft/unilm/tree/master/textdiffuser-2
   * 论文：[arXiv 2311.16465](https://arxiv.org/abs/2311.16465)
   * 简介：用大语言模型规划文字内容和 layout，再将 layout 编码进 diffusion 模型，支持聊天式布局调整。
 
 * **Glyph-ByT5**：
+  * 地址：https://github.com/AIGText/Glyph-ByT5
   * 论文：[arXiv 2403.09622](https://arxiv.org/abs/2403.09622)
   * 简介：定制 character-aware ByT5 text encoder，并与 SDXL 结合，让设计图和长文本渲染的 spelling accuracy 大幅提升。
 
@@ -383,12 +495,29 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 简介：将 visual text rendering 与 object layout generation 合并为 layout-controllable text-object synthesis，面向 emoji / poster 等图文组合场景。
 
 * **TextCrafter**：
+  * 地址：https://github.com/NJU-PCALab/TextCrafter
   * 论文：[arXiv 2503.23461](https://arxiv.org/abs/2503.23461)
-  * 简介：聚焦 Complex Visual Text Generation，解决复杂场景中多文本混淆、遗漏、模糊问题，并提出 CVTG-2K benchmark。
+  * 简介：以 bottleneck-aware constrained RL 与 quotation-guided attention 缓解多文字 insulation 和 token 混淆，并提出 CVTG-2K / CVTG-Hard。
 
 * **InnoAds-Composer**：
   * 论文：[arXiv 2603.05898](https://arxiv.org/abs/2603.05898)
   * 简介：电商产品海报生成框架，单阶段联合控制 subject、glyph 和 style，并为中文文字渲染设计 Text Feature Enhancement Module。
+
+* **SceneVTG / SceneVTG++**：
+  * 论文：[SceneVTG](https://arxiv.org/abs/2407.14138) / [SceneVTG++](https://arxiv.org/abs/2501.02962)
+  * 简介：使用 MLLM 推荐自然场景中合理的 text region/content，再以 conditional diffusion 完成真实、多语言且属性可控的渲染。
+
+* **CharGen / GlyphMastero**：
+  * 论文：[CharGen](https://arxiv.org/abs/2412.17225) / [GlyphMastero](https://arxiv.org/abs/2505.04915)
+  * 简介：分别以 character-level multimodal encoder 和 stroke/character/line hierarchical glyph encoder 提升复杂字形的结构准确性。
+
+* **FontAdapter / StyleTextGen**：
+  * 论文：[FontAdapter](https://arxiv.org/abs/2506.05843) / [StyleTextGen](https://arxiv.org/abs/2605.14708)
+  * 简介：前者从 reference glyph 在数秒内适配 unseen font；后者用双分支 style encoder 和 mask guidance 做多语言、跨语言风格复刻。
+
+* **TextPecker / GlyphPrinter / POCA**：
+  * 论文：[TextPecker](https://arxiv.org/abs/2602.20903) / [GlyphPrinter](https://arxiv.org/abs/2603.15616) / [POCA](https://arxiv.org/abs/2604.24171)
+  * 简介：代表 2026 年 post-training 路线：结构异常感知 reward、region-grouped DPO，以及在文字准确、美学和指令遵循间求 Pareto-optimal curriculum。
 
 ### 3.5 Attribute and Multilingual Control
 
@@ -407,22 +536,44 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[arXiv 2510.10910](https://arxiv.org/abs/2510.10910)
   * 简介：training-free scene text style transfer。通过 diffusion inversion、自注意力 feature injection、region control 和 Fourier style enhancement，只改文字区域风格并保持可读性。
 
+* **UTDesign**：
+  * 地址：https://github.com/ZYM-PKU/UTDesign
+  * 论文：[SIGGRAPH Asia 2025](https://arxiv.org/abs/2512.20479)
+  * 简介：用 DiT 生成透明 RGBA stylized glyph foreground，统一中英文 text editing、conditional generation 和完整 text-to-design pipeline。
+
+* **MiLDEdit / MiLDEAgent**：
+  * 论文：[arXiv 2601.04589](https://arxiv.org/abs/2601.04589)
+  * 简介：面向多层海报和设计文档，以 RL-trained multimodal reasoner 识别目标图层，再协调 image editor 执行局部修改。
+
 ### 3.6 Benchmark-first Frameworks
 
 最近的趋势是：单个模型结果已经不足以说明问题，领域更需要标准数据、任务划分和评测协议。
 
 * **TextEditBench**：
   * 论文：[arXiv 2512.16270](https://arxiv.org/abs/2512.16270)
-  * 简介：强调 reasoning-aware text editing beyond rendering。评估模型是否能在编辑文字时保持语义、物理和上下文合理性。
+  * 简介：1,196 个 multilingual / mixed-script 标注实例，覆盖 14 个主题、6 类任务和 12 个子任务；强调 reasoning-aware editing beyond rendering。
 
 * **VDE Bench**：
+  * 地址：https://github.com/zion-zion-zion/VDE-Bench
   * 论文：[arXiv 2602.00122](https://arxiv.org/abs/2602.00122)
-  * 简介：面向视觉文档编辑，覆盖论文、海报、幻灯片、试卷、报纸等 dense text document，并使用 OCR parsing 做细粒度评估。
+  * 简介：942 个中英文样本，覆盖论文、海报、幻灯片、试卷、报纸等 dense text document，并使用 OCR parsing 做细粒度评估。
 
 * **TextSculptor**：
   * 地址：https://github.com/linyiheng123/TextSculptor ![](https://img.shields.io/github/stars/linyiheng123/TextSculptor.svg)
   * 论文：[arXiv 2605.21090](https://arxiv.org/abs/2605.21090)
   * 简介：系统化的数据构造和评测框架。构造 TextSculpt-Data（3.2M 样本），并发布 TextSculpt-Bench，覆盖 addition / replacement / removal / hybrid editing 四类任务。
+
+* **WeEdit / TextWand**：
+  * 论文：[WeEdit](https://arxiv.org/abs/2603.11593) / [TextWand](https://arxiv.org/abs/2606.05730)
+  * 简介：WeEdit 提供中英与 15 语两个 2K benchmark；TextWand-Bench 含 1,500 个样本，在 generation、replacement、removal 三类任务上各 500 个。
+
+* **MULTITEXTEDIT / Mind the Gap**：
+  * 论文：[MULTITEXTEDIT](https://arxiv.org/abs/2605.08163) / [Mind the Gap](https://arxiv.org/abs/2606.15982)
+  * 简介：前者以 3,600 个实例测量 12 种语言的 script fidelity；后者用 461 个案例和 19 类依赖诊断模型能否发现局部改字触发的二级一致性约束。
+
+* **TextInVision**：
+  * 论文：[arXiv 2503.13730](https://arxiv.org/abs/2503.13730)
+  * 简介：联合控制 text complexity 与 prompt complexity，系统诊断 visual text generation，并分析 VAE 在小字和密集文字上的瓶颈。
 
 * **ImgEdit / EditInspector**：
   * 论文：[ImgEdit](https://arxiv.org/abs/2505.20275) / [EditInspector](https://arxiv.org/abs/2506.09988)
@@ -434,17 +585,29 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 
 | 数据集 | 年份 | 来源 | 规模 / 标注 | 用途 |
 |--------|------|------|-------------|------|
+| **SCUT-Syn** | 2018 | EnsNet | 8K train / 800 test synthetic pairs | scene text removal training / evaluation |
+| **SCUT-EnsText** | 2020 | EraseNet | real-world paired text / clean-background images | real-world scene text removal |
+| **Imgur5K** | 2021 | TextStyleBrush | handwritten word images | one-shot text style transfer |
+| **Tamper-Syn2k / Tamper-Scene** | 2022 | MOSTEL | synthetic + real scene text editing pairs | stroke-level editing training / evaluation |
 | **MARIO-10M** | 2023 | TextDiffuser | 10M image-text pairs，含 OCR recognition / detection / character-level segmentation | text rendering training |
 | **AnyWord-3M** | 2023 | AnyText | 3M multilingual image-text pairs，含 OCR 标注 | multilingual generation / editing |
 | **LAION-Glyph** | 2023 | GlyphControl | glyph-conditioned visual text data | glyph-controlled text rendering |
 | **Flickr-ST** | 2023 | FETNet | scene text removal / segmentation annotations | text removal and segmentation |
-| **Tamper-Syn2k / Tamper-Scene** | 2022 | MOSTEL | synthetic + real scene text editing pairs | stroke-level editing evaluation |
-| **SCUT-Syn / SCUT-EnsText** | 2018-2024 | STR literature | synthetic and real-world text removal data | scene text removal |
 | **ScenePair** | 2024 | TextCtrl | real-world paired scene text editing dataset | real-world STE comparison |
-| **CVTG-2K** | 2025 | TextCrafter | complex visual text generation benchmark data | multi-text rendering evaluation |
-| **Imgur5K** | 2021 | TextStyleBrush | handwritten word image dataset | one-shot text style transfer |
+| **DetailedTextCaps-100K** | 2024 | TextHarmony | 100K detailed visual-text captions | comprehension + generation training |
 | **LTOS dataset** | 2024 | LTOS | layout-aware text-object labels | poster / emoji-style text-object synthesis |
-| **TextSculpt-Data** | 2026 | TextSculptor | 3.2M samples，1.2M OCR-verified T2I + 2M paired editing | scene text editing training |
+| **RS-STE-Dataset** | 2025 | RS-STE | paired synthetic data + unpaired real-data recipe | recognition-synergistic editing |
+| **OTR** | 2025 | OTR | out-of-domain overlay text + clean GT / complex backgrounds | text removal training / evaluation |
+| **STIPLAR** | 2025 | STELLAR | low-resource languages + real-world pairs | multilingual STE / TAS evaluation |
+| **SCB Synthesis** | 2025 | TripleFDS | 1M images / 125K SCB Groups | content/style/background disentanglement |
+| **SynthGlyph / DesignText** | 2025 | UTDesign | ≈28.8M character instances / 115.5K design images | bilingual stylized design editing / generation |
+| **UM-DATA-200K** | 2026 | UM-Text | 200K poster / product images | context-aware bilingual editing |
+| **TextPecker-1.5M** | 2026 | TextPecker | 1.5M character-level structural-anomaly samples | VTR reward training / evaluation |
+| **WeEdit Dataset** | 2026 | WeEdit | 330K pairs，7 operations，15 languages | text-centric SFT / RL training |
+| **TextSculpt-Data** | 2026 | TextSculptor | 3.2M samples，1.2M OCR-verified T2I + 2M paired editing | scene text generation / editing |
+| **TextWand-72K** | 2026 | TextWand | 72K Chinese/English/symbol samples，>300 fonts | unified generation / replacement / removal |
+
+> ScenePair 等资源同时承担训练/评测用途；这里按“数据来源”收录，下面的 Benchmark 表再描述其评测协议。下载入口：[SCUT-Syn](https://github.com/HCIILAB/Scene-Text-Removal)、[SCUT-EnsText](https://github.com/HCIILAB/SCUT-EnsText)、[RS-STE-Dataset](https://huggingface.co/datasets/Nineve/RS-STE-Dataset)、[OTR](https://huggingface.co/datasets/cyberagent/OTR)、[TextPecker-1.5M](https://huggingface.co/datasets/CIawevy/TextPecker-1.5M)、[TextSculpt-Data](https://huggingface.co/datasets/dafbgd/TextSculpt-Data)。
 
 ### 4.2 Benchmark
 
@@ -452,15 +615,22 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 |-----------|------|--------|------|------|
 | **MARIO-Eval** | 2023 | visual text rendering quality | English | [TextDiffuser](https://arxiv.org/abs/2305.10855) |
 | **AnyText-benchmark** | 2023 | multilingual text generation / editing | Multilingual | [AnyText](https://arxiv.org/abs/2311.03054) |
-| **LAION-Glyph benchmark** | 2023 | glyph-conditioned text rendering | English / general | [GlyphControl](https://arxiv.org/abs/2305.18259) |
 | **ScenePair** | 2024 | real-world paired scene text editing | English | [TextCtrl](https://arxiv.org/abs/2410.10133) |
-| **CVTG-2K** | 2025 | complex multi-text visual generation | English / general | [TextCrafter](https://arxiv.org/abs/2503.23461) |
-| **ImgEdit-Bench** | 2025 | general image editing quality and multi-turn edits | General | [ImgEdit](https://arxiv.org/abs/2505.20275) |
-| **EditInspector** | 2025 | edit verification and artifact detection | General | [paper](https://arxiv.org/abs/2506.09988) |
-| **TextEditBench** | 2025 | reasoning-aware text editing | English | [paper](https://arxiv.org/abs/2512.16270) |
-| **VDE Bench** | 2026 | visual document editing / OCR parsing | English / Chinese | [paper](https://arxiv.org/abs/2602.00122) |
-| **MULTITEXTEDIT** | 2026 | cross-lingual degradation / script fidelity | 12 languages | [paper](https://arxiv.org/abs/2605.08163) |
-| **TextSculpt-Bench** | 2026 | addition / replacement / removal / hybrid editing | English | [TextSculptor](https://github.com/linyiheng123/TextSculptor) |
+| **CVTG-2K / CVTG-Hard** | 2025 | complex multi-text rendering，2K prompts + 400 hard samples | English / Chinese | [TextCrafter](https://github.com/NJU-PCALab/TextCrafter) |
+| **TextInVision** | 2025 | text complexity × prompt complexity / VAE failure diagnosis | multilingual | [paper](https://arxiv.org/abs/2503.13730) |
+| **OmniText-Bench** | 2025 | insert / edit / remove / reposition / rescale with style refs | Latin / alphanumeric | [code/bench](https://github.com/KAIST-VICLab/OmniText) |
+| **UTDesign-Bench** | 2025 | stylized text edit / conditional generation，1K cases | Chinese / English | [code/data](https://github.com/ZYM-PKU/UTDesign) |
+| **TextEditBench** | 2025 | reasoning-aware editing，1,196 instances / 12 subtasks | multilingual / mixed-script | [paper](https://arxiv.org/abs/2512.16270) |
+| **MiLDEBench / MiLDEEval** | 2026 | multi-layer design-document editing，>20K documents | design documents | [paper](https://arxiv.org/abs/2601.04589) |
+| **UMT-Benchmark** | 2026 | context-aware / multi-turn visual text editing | Chinese / English | [UM-Text](https://arxiv.org/abs/2601.08321) |
+| **VDE Bench** | 2026 | visual document editing / OCR parsing，942 samples | Chinese / English | [code/data](https://github.com/zion-zion-zion/VDE-Bench) |
+| **TIQA / ANTIQA** | 2026 | no-reference human-aligned typography quality，120K crops + 1.5K images | multilingual | [paper](https://arxiv.org/abs/2603.07119) / [code/data](https://github.com/koltsov-cmc/antiqa) |
+| **WeEdit Bilingual / Multilingual** | 2026 | 8 edit categories，2K cases each | Chinese / English + 15 languages | [benchmark](https://huggingface.co/datasets/HuiZhang0812/WeEdit_benchmark) |
+| **StyleText-CE** | 2026 | monolingual / cross-lingual text-style consistency | multilingual | [StyleTextGen](https://arxiv.org/abs/2605.14708) |
+| **MULTITEXTEDIT** | 2026 | 3,600 edits，5 domains / 7 operations / script fidelity | 12 languages | [paper](https://arxiv.org/abs/2605.08163) |
+| **TextSculpt-Bench** | 2026 | addition / replacement / removal / hybrid editing | English | [code/data](https://github.com/linyiheng123/TextSculptor) |
+| **TextWand-Bench** | 2026 | generation / replacement / removal，500 each | Chinese / English / symbols | [paper](https://arxiv.org/abs/2606.05730) |
+| **Constraint-discovery diagnostic** | 2026 | 461 cases / 19 secondary-constraint types | multilingual scenes | [Mind the Gap](https://arxiv.org/abs/2606.15982) |
 
 ### 4.3 常用评测指标
 
@@ -470,27 +640,42 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | 文字正确性 | **CER / WER** | 字符错误率 / 词错误率 |
 | 脚本保真 | **Language / Script Fidelity** | 是否保留变音符、RTL 顺序、连写形态、混合脚本 |
 | 风格一致性 | **Style similarity** | 字体、颜色、stroke、阴影、透视是否与原图一致 |
+| 风格一致性 | **TAS / reference-style similarity** | 分别衡量 font、color、background 或参考 glyph 风格是否保持 |
 | 背景保持 | **LPIPS / PSNR / SSIM on non-edit region** | 非编辑区域是否漂移 |
+| 局部保护 | **Edit spillover rate / per-region preservation** | 编辑目标文字时，邻近非目标文字是否被误改 |
 | 语义一致性 | **Semantic Expectation / VLM judgment** | 编辑结果是否符合上下文和物理常识 |
+| 指令遵循 | **IA / TA / VQ / BP** | instruction adherence、text accuracy、visual quality、background preservation 的组合评估 |
+| 字形结构 | **Structural-anomaly score** | 检测错笔画、扭曲、模糊、错位等 OCR 可能忽略的结构错误 |
 | 文档结构 | **OCR parsing / reading order** | dense document 中布局和阅读顺序是否保持 |
 | 人类偏好 | **Human preference** | 综合文字正确、视觉自然、编辑保真 |
 
 ## 5. 开源工具与项目
 
-| 项目 | 说明 |
-|------|------|
-| **AnyText** | 多语言文字生成与编辑 baseline：[tyxsspa/AnyText](https://github.com/tyxsspa/AnyText) |
-| **AnyText2** | 字体/颜色属性可控的文字生成与编辑：[tyxsspa/AnyText2](https://github.com/tyxsspa/AnyText2) |
-| **DiffSTE** | diffusion-based scene text editing：[UCSB-NLP-Chang/DiffSTE](https://github.com/UCSB-NLP-Chang/DiffSTE) |
-| **FETNet** | feature erasing/transferring scene text removal：[GuangtaoLyu/FETNet](https://github.com/GuangtaoLyu/FETNet) |
-| **GlyphDraw2** | 中英文复杂 glyph poster generation：[OPPO-Mente-Lab/GlyphDraw2](https://github.com/OPPO-Mente-Lab/GlyphDraw2) |
-| **MOSTEL** | stroke-level scene text editing：[qqqyd/MOSTEL](https://github.com/qqqyd/MOSTEL) |
-| **Qwen-Image** | 强文字渲染与图像编辑基座模型：[QwenLM/Qwen-Image](https://github.com/QwenLM/Qwen-Image) |
-| **Qwen-Image-Layered** | layer decomposition for inherent editability：[QwenLM/Qwen-Image-Layered](https://github.com/QwenLM/Qwen-Image-Layered) |
-| **RewriteNet** | content-style decomposition baseline：[clovaai/rewritenet](https://github.com/clovaai/rewritenet) |
-| **TextDiffuser** | layout-guided text rendering：[aka.ms/textdiffuser](https://aka.ms/textdiffuser) |
-| **TextSculptor** | data construction + benchmark framework：[linyiheng123/TextSculptor](https://github.com/linyiheng123/TextSculptor) |
-| **TMIM** | text-aware masked image modeling for STR：[wzx99/TMIM](https://github.com/wzx99/TMIM) |
+这里只列官方公开实现、数据或评测代码；完整论文列表以上方全景表为准。
+
+| 项目 | 主要用途 | 官方资源 |
+|------|----------|----------|
+| **AnyText / AnyText2** | multilingual generation/editing + font/color control | [AnyText](https://github.com/tyxsspa/AnyText) / [AnyText2](https://github.com/tyxsspa/AnyText2) |
+| **Boogu-Image-0.1** | bilingual unified generation / editing foundation model | [Boogu-Project/Boogu-Image](https://github.com/Boogu-Project/Boogu-Image) |
+| **DiffSTE / DiffUTE** | diffusion insertion / replacement | [DiffSTE](https://github.com/UCSB-NLP-Chang/DiffSTE) / [DiffUTE](https://github.com/chenhaoxing/DiffUTE) |
+| **FETNet / PSSTRNet** | feature- and segmentation-guided text removal | [FETNet](https://github.com/GuangtaoLyu/FETNet) / [PSSTRNet](https://github.com/GuangtaoLyu/PSSTRNet) |
+| **FLUX-Text** | multilingual FLUX-Fill scene text editing | [AMAP-ML/FluxText](https://github.com/AMAP-ML/FluxText) |
+| **Glyph-ByT5 / v2** | accurate multilingual visual text rendering | [AIGText/Glyph-ByT5](https://github.com/AIGText/Glyph-ByT5) |
+| **GlyphControl / GlyphDraw2** | glyph-controlled rendering / complex poster generation | [GlyphControl](https://github.com/AIGText/GlyphControl-release) / [GlyphDraw2](https://github.com/OPPO-Mente-Lab/GlyphDraw2) |
+| **GlyphPrinter / TextPecker** | preference/reward-based glyph post-training | [GlyphPrinter](https://github.com/FudanCVL/GlyphPrinter) / [TextPecker](https://github.com/CIawevy/TextPecker) |
+| **MOSTEL / RS-STE / TripleFDS** | stroke, recognition, and attribute-disentangled replacement | [MOSTEL](https://github.com/qqqyd/MOSTEL) / [RS-STE](https://github.com/ZhengyaoFang/RS-STE) / [TripleFDS](https://github.com/yusenbao01/TripleFDS) |
+| **OmniText** | training-free general text-image manipulation + benchmark | [KAIST-VICLab/OmniText](https://github.com/KAIST-VICLab/OmniText) |
+| **PERT / ViTEraser** | progressive region / ViT-based text removal | [PERT](https://github.com/wangyuxin87/PERT) / [ViTEraser](https://github.com/shannanyinxiang/ViTEraser) |
+| **Qwen-Image** | text-rich generation and precise image editing | [QwenLM/Qwen-Image](https://github.com/QwenLM/Qwen-Image) |
+| **SceneVTG / TextHarmony** | scene text planning, comprehension and generation | [SceneVTG](https://github.com/AlibabaResearch/AdvancedLiterateMachinery) / [TextHarmony](https://github.com/bytedance/TextHarmony) |
+| **SRNet / EnsNet / EraseNet** | classic replacement / removal baselines | [SRNet](https://github.com/youdao-ai/SRNet) / [EnsNet](https://github.com/HCIILAB/Scene-Text-Removal) / [EraseNet](https://github.com/lcy0604/EraseNet) |
+| **TextCrafter** | complex multi-text rendering and CVTG evaluation | [NJU-PCALab/TextCrafter](https://github.com/NJU-PCALab/TextCrafter) |
+| **TextDiffuser / TextDiffuser-2** | layout-guided rendering and LLM layout planning | [TextDiffuser](https://github.com/microsoft/unilm/tree/master/textdiffuser) / [TextDiffuser-2](https://github.com/microsoft/unilm/tree/master/textdiffuser-2) |
+| **TextFlow** | training-free flow-based scene text editing | [lyb18758/TextFlow](https://github.com/lyb18758/TextFlow) |
+| **TextSculptor** | training data, four-task benchmark and evaluation | [linyiheng123/TextSculptor](https://github.com/linyiheng123/TextSculptor) |
+| **TMIM** | text-aware masked image modeling for removal | [wzx99/TMIM](https://github.com/wzx99/TMIM) |
+| **UDiffText / UTDesign** | character-aware synthesis / bilingual graphic-design editing | [UDiffText](https://github.com/ZYM-PKU/UDiffText) / [UTDesign](https://github.com/ZYM-PKU/UTDesign) |
+| **VDE Bench / WeEdit** | document/text-centric editing datasets and evaluation | [VDE-Bench](https://github.com/zion-zion-zion/VDE-Bench) / [WeEdit](https://github.com/HuiZhang0812/WeEdit) |
 
 ## 6. 相关方向
 
@@ -499,12 +684,15 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 * **OCR-guided Image Editing**：用 OCR detection / recognition / parsing 引导图像编辑。
 * **Visual Document Understanding and Editing**：从文档理解、版面分析进入文档图像编辑。
 * **Multilingual Visual Generation**：关注非英文脚本、多语言、跨语言退化。
-* **Benchmark and Evaluation**：从 OCR accuracy 走向 OCR + VLM + human preference 的组合评测。
+* **Layered Image / Design Decomposition**：[Qwen-Image-Layered](https://github.com/QwenLM/Qwen-Image-Layered) 提供 RGB-to-RGBA 图层分解；[CreatiParser](https://arxiv.org/abs/2604.19632) 将 raster design 解析为可编辑的文字、背景和贴纸图层。两者都更偏通用设计可编辑性，而非 text-specific 方法。
+* **General Image Editing Evaluation**：[ImgEdit](https://arxiv.org/abs/2505.20275) 与 [EditInspector](https://arxiv.org/abs/2506.09988) 可补充 instruction adherence、artifact 和 detail preservation 评估。
+* **Structured Graphic Design**：[StructuredEdit](https://arxiv.org/abs/2607.04612) 与 [PosterHarness](https://arxiv.org/abs/2607.03006) 分别研究参数化 typography/layout 编辑和 scientific-poster generation audit，属于邻近方向。
+* **Benchmark and Evaluation**：从 OCR accuracy 走向 OCR + structural anomaly + VLM + human preference 的组合评测。
 
-## Star History
+## Contributing
 
-[![Star History Chart](https://api.star-history.com/svg?repos=leeguandong/Awesome-Text-Editing&type=Date)](https://star-history.com/#leeguandong/Awesome-Text-Editing&Date)
+欢迎提交论文、官方实现、数据集、benchmark 或已失效链接修复。请先阅读 [CONTRIBUTING.md](CONTRIBUTING.md)，并在 PR 中给出可核验来源；未正式录用的工作会明确标为 arXiv / preprint，不把计划投稿写成已录用 venue。
 
 ## License
 
-Apache License 2.0
+[Apache License 2.0](LICENSE)
