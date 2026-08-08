@@ -13,7 +13,7 @@ Awesome-Text-Editing
 
 > A curated list of text-in-image generation and editing methods, covering scene text replacement, text insertion, text removal, multilingual visual text rendering, style-preserving editing, and visual document editing.
 
-> **Last updated / 文献截止 / 链接核验：2026-07-19** · 年份按首次公开时间记录；已确认的会议/期刊另行标注。
+> **Last updated / 文献截止 / 链接核验：2026-08-08** · 年份按首次公开时间记录；已确认的会议/期刊另行标注。
 
 本项目旨在收集和梳理 **图像中文字编辑（Text-in-Image Editing / Scene Text Editing）** 相关工作，包括自然场景文字替换、广告海报文字生成、文档图像文字编辑、多语言文字渲染、文字擦除与重绘、OCR / glyph / layout 约束生成，以及对应的数据集与评测基准。
 
@@ -81,6 +81,7 @@ Awesome-Text-Editing
 
 ## 最近更新
 
+- **2026-08-08**：补充 JoyType、RepText、EasyText、ControlText、DanceText、TextSculptor 等最新工作，更新文献截止日期和链接核验。
 - **2026-07-19**：补充 TextWand、Self-Prompting STE、TextFlow、WeEdit、MiLDEdit、GlyphPrinter、TextPecker 等 2026 年工作，并回补 GlyphMastero、RS-STE、TextMastero、ViTEraser 等代表性方法。
 - **2026-07-19**：增加首发年份与 venue/status 口径、训练集/评测集标记，补齐官方代码和项目页；失效资源会显式标为 unavailable，不再保留误导链接。
 - **2026-07-19**：新增贡献规范和 Apache-2.0 许可证，移除当前不可用的 Star History 图。
@@ -125,6 +126,7 @@ Awesome-Text-Editing
 | **TextHarmony** | 2024 | model · comprehension / generation | Slide-LoRA experts | multilingual | train: DetailedTextCaps-100K | [NeurIPS 2024](https://arxiv.org/abs/2407.16364) | [code](https://github.com/bytedance/TextHarmony) |
 | **TextMastero** | 2024 | method · replacement | glyph conditioning + latent style guidance | multilingual / CJK | eval: public STE datasets | [arXiv](https://arxiv.org/abs/2408.10623) | — |
 | **TMIM** | 2024 | method · removal | text-aware masked image modeling | language-agnostic | train: detection labels; eval: SCUT-EnsText | [ECCV 2024](https://arxiv.org/abs/2409.13431) | [code](https://github.com/wzx99/TMIM) |
+| **JoyType** | 2024 | method · multilingual rendering | font style preservation + canny edge guidance | multilingual | train: JoyType-1M | [arXiv](https://arxiv.org/abs/2409.17524) | [code](https://github.com/jdh-algo/JoyType) |
 | **TextCtrl** | 2024 | method · replacement | style-structure guidance + mutual self-attention | English | both: ScenePair | [NeurIPS 2024](https://arxiv.org/abs/2410.10133) | — |
 | **DiffSTR** | 2024 | method · removal | ControlNet diffusion + mask refinement | language-agnostic | eval: SCUT-EnsText / SCUT-Syn | [arXiv](https://arxiv.org/abs/2410.21721) | — |
 | **AnyText2** | 2024 | method · generation / editing | line-level font and color control | multilingual | eval: multilingual benchmarks | [arXiv](https://arxiv.org/abs/2411.15245) | [code](https://github.com/tyxsspa/AnyText2) |
@@ -143,6 +145,10 @@ Awesome-Text-Editing
 | **STELLAR** | 2025 | method · low-resource replacement | language-adaptive glyph encoder + synthetic-to-real training | multilingual / low-resource | both: STIPLAR; eval: TAS | [AAAI 2026 Workshop](https://arxiv.org/abs/2511.09977) | — |
 | **TripleFDS** | 2025 | method · replacement / attribute transfer | content/style/background disentanglement | English / alphanumeric | train: SCB Synthesis (1M images / 125K groups) | [AAAI 2026](https://arxiv.org/abs/2511.13399) | [code](https://github.com/yusenbao01/TripleFDS) |
 | **GLASTE** | 2025 | method · replacement | global-local modeling + size-independent style vector | English | eval: public STE datasets | [ICME 2025](https://arxiv.org/abs/2512.03574) | — |
+| **ControlText** | 2025 | method · font-controllable rendering | font control without annotations + contrastive learning | multilingual | train: raw images without font labels | [arXiv](https://arxiv.org/abs/2502.10999) | [code](https://github.com/bowen-upenn/controltext) |
+| **RepText** | 2025 | method · multilingual rendering | replicating-based font rendering | multilingual | train: user-specified fonts | [arXiv](https://arxiv.org/abs/2504.19724) | [code](https://github.com/Shakker-Labs/RepText) |
+| **DanceText** | 2025 | framework · text transformation | training-free layered geometric transformation | multilingual | eval: text transformation benchmarks | [arXiv](https://arxiv.org/abs/2504.14108) | — |
+| **EasyText** | 2025 | method · multilingual rendering | DiT + character positioning encoding | 10+ languages | train: 1M synthetic + 20K high-quality | [arXiv](https://arxiv.org/abs/2505.24417) | [code](https://github.com/songyiren725/easytext) |
 | **TextEditBench** | 2025 | benchmark · reasoning-aware editing | semantic expectation evaluation | multilingual / mixed-script | eval: 1,196 instances / 12 subtasks | [NeurIPS 2025](https://arxiv.org/abs/2512.16270) | — |
 | **UTDesign** | 2025 | framework · graphic design editing / generation | RGBA glyph DiT + MLLM layout planner | Chinese / English | train: SynthGlyph / DesignText; eval: UTDesign-Bench | [SIGGRAPH Asia 2025](https://arxiv.org/abs/2512.20479) | [code/data](https://github.com/ZYM-PKU/UTDesign) |
 | **MiLDEdit / MiLDEAgent** | 2026 | framework · multi-layer document editing | RL-trained layer reasoner + image editor | multilingual design docs | eval: MiLDEBench (>20K documents) | [arXiv](https://arxiv.org/abs/2601.04589) | — |
@@ -177,11 +183,12 @@ Awesome-Text-Editing
 2023  GlyphDraw / DiffUTE / DiffSTE               (glyph 条件与 diffusion 进入通用文字编辑)
 2023  TextDiffuser / AnyText / UDiffText           (大规模 OCR 数据、多语言与字符级编码)
 2024  TextDiffuser-2 / Glyph-ByT5 / TextHarmony   (LLM layout planning + 定制 text encoder)
-2024  TextMastero / TextCtrl / AnyText2            (多语言字形、风格结构与属性控制)
+2024  TextMastero / TextCtrl / AnyText2 / JoyType  (多语言字形、风格结构与属性控制、字体保持)
 2024  ViTEraser / TMIM / DiffSTR                   (ViT / masked modeling / diffusion removal)
 2025  RS-STE / GlyphMastero / FLUX-Text            (识别协同与复杂字形的高保真替换)
 2025  TextCrafter / FontAdapter / Qwen-Image       (复杂多文字、字体适配与强基座模型)
 2025  OmniText / TripleFDS / UTDesign              (通用操作、属性解耦与设计图层编辑)
+2025  ControlText / RepText / DanceText / EasyText (无标注字体控制、复制式渲染、训练无关变换、DiT 多语言)
 2026  UM-Text / MiLDEdit / WeEdit                  (自然语言、多层文档与多语言系统化训练)
 2026  TextPecker / GlyphPrinter / POCA             (结构感知 reward / preference optimization)
 2026  TextFlow / EFF / Self-Prompting STE          (训练无关编辑、spillover 控制与 in-context editing)
@@ -265,6 +272,11 @@ Awesome-Text-Editing
 | **Glyph-ByT5** | 定制 ByT5 text encoder，提高设计图文字准确性和长文本渲染能力 |
 | **Glyph-ByT5-v2** | 扩展到 10 种语言并提升美学质量 |
 | **GlyphDraw2** | LLM + diffusion 自动生成中英文复杂 glyph poster，并支持字体和高分辨率 |
+| **JoyType** | 保持字体风格的多语言文字创建，采用 VLM 生成描述和 canny edge 指导 |
+| **RepText** | 复制式多语言文字渲染，无需理解语言语义，支持用户指定字体 |
+| **ControlText** | 无标注字体可控渲染，通过对比学习实现字体控制 |
+| **DanceText** | 训练无关的分层文字几何变换框架，支持复杂变换和前后景融合 |
+| **EasyText** | 基于 DiT 的可控多语言文字渲染，支持位置编码插值和曲线文字 |
 | **LTOS** | 将 visual text rendering 与 object layout generation 合并为 text-object synthesis |
 | **SceneVTG / SceneVTG++** | 用 MLLM 规划自然场景中的合理文字位置和内容，并支持多语言属性控制 |
 | **CharGen / GlyphMastero** | 从 character-level multimodal encoding 和层次化 glyph encoding 提升复杂笔画准确性 |
@@ -283,6 +295,11 @@ Awesome-Text-Editing
 | **AnyText** | 首批系统支持 multilingual visual text generation and editing 的 diffusion 工作 |
 | **AnyText2** | 在 multilingual 基础上加入字体、颜色等属性控制 |
 | **Glyph-ByT5-v2** | 支持 10 种语言的 visual text rendering |
+| **JoyType** | 保持字体风格的多语言文字生成，使用 canny edge 辅助 |
+| **ControlText** | 无需字体标注的字体可控多语言渲染，基于对比学习 |
+| **RepText** | 通过复制机制实现用户指定字体的多语言渲染，无需理解语言本身 |
+| **DanceText** | 训练无关的多语言文字几何变换框架，支持旋转、缩放、扭曲 |
+| **EasyText** | 基于 DiT 的多语言文字渲染，支持 10+ 种语言和曲线文字 |
 | **FLUX-Text** | 以较少训练样本增强 FLUX-Fill 的 multilingual scene text editing，强调中文复杂字形 |
 | **SceneVTG++ / StyleTextGen** | 分别关注自然场景中的可控多语言渲染，以及 monolingual / cross-lingual style consistency |
 | **FontAdapter** | 通过参考 glyph 支持 unseen font、cross-lingual font transfer 与字体混合 |
