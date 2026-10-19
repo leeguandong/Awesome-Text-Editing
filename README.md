@@ -13,7 +13,7 @@ Awesome-Text-Editing
 
 > A curated list of text-in-image generation and editing methods, covering scene text replacement, text insertion, text removal, multilingual visual text rendering, style-preserving editing, and visual document editing.
 
-> **Last updated / 文献截止 / 链接核验：2026-08-08** · 年份按首次公开时间记录；已确认的会议/期刊另行标注。
+> **Last updated / 文献截止 / 链接核验：2026-10-19** · 年份按首次公开时间记录；已确认的会议/期刊另行标注。
 
 本项目旨在收集和梳理 **图像中文字编辑（Text-in-Image Editing / Scene Text Editing）** 相关工作，包括自然场景文字替换、广告海报文字生成、文档图像文字编辑、多语言文字渲染、文字擦除与重绘、OCR / glyph / layout 约束生成，以及对应的数据集与评测基准。
 
@@ -81,6 +81,7 @@ Awesome-Text-Editing
 
 ## 最近更新
 
+- **2026-10-19**：补充 2026-08-08 之后的 PixText、TextVerifier、IDSpect、GlyphAnchor、STEPS、LoGAN、PosterText、InfoVis、UltraText Bench、VTR-Bench 等工作，新增像素级局部修复、IDS 字形结构验证、密集文字与视频文字评测条目。
 - **2026-08-08**：补充 JoyType、RepText、EasyText、ControlText、DanceText、TextSculptor 等最新工作，更新文献截止日期和链接核验。
 - **2026-07-19**：补充 TextWand、Self-Prompting STE、TextFlow、WeEdit、MiLDEdit、GlyphPrinter、TextPecker 等 2026 年工作，并回补 GlyphMastero、RS-STE、TextMastero、ViTEraser 等代表性方法。
 - **2026-07-19**：增加首发年份与 venue/status 口径、训练集/评测集标记，补齐官方代码和项目页；失效资源会显式标为 unavailable，不再保留误导链接。
@@ -169,6 +170,16 @@ Awesome-Text-Editing
 | **TextWand** | 2026 | method · unified generation / replacement / removal | ORPE + region-adaptive suppression | Chinese / English / symbols | train: TextWand-72K; eval: TextWand-Bench (1.5K) | [arXiv](https://arxiv.org/abs/2606.05730) | — |
 | **Mind the Gap** | 2026 | analysis · edit-constraint discovery | 19-type causal dependency diagnostic | multilingual scenes | eval: 461 diagnostic cases | [arXiv](https://arxiv.org/abs/2606.15982) | — |
 | **Boogu-Image-0.1** | 2026 | foundation model · generation / editing | unified model family + agentic inference scaling | Chinese / English | train: 208.62M unique images | [technical report](https://arxiv.org/abs/2607.13125) | [code](https://github.com/Boogu-Project/Boogu-Image) |
+| **PosterText** | 2026 | framework · poster generation / editing | text-patch atomic operations + curriculum / RL / spatial self-distillation | — | train/eval: patch-level e-commerce poster data / benchmark | [arXiv](https://arxiv.org/abs/2608.16289) | — |
+| **GlyphAnchor** | 2026 | method · rendering / editing | position-anchored glyph patch priors + text-aware post-training | — | eval: InfoTextBench | [arXiv](https://arxiv.org/abs/2609.02349) | — |
+| **LoGAN** | 2026 | framework · font localization | VLM agent + glyph diffusion + spacing/kerning transfer | 27+ languages | eval: multilingual font / logo datasets | [ECCV 2026](https://arxiv.org/abs/2609.07029) | — |
+| **STEPS** | 2026 | method · replacement | contrastive style encoder + glyph and character conditions | — | eval: scene text editing benchmarks | [PAKDD 2026](https://arxiv.org/abs/2609.38636) | — |
+| **IDSpect** | 2026 | method · rendering optimization | IDS component/spatial reward for Chinese glyph structure | Chinese | train/eval: IDS recognizer + LongText / GenTextEval | [arXiv](https://arxiv.org/abs/2609.37569) | — |
+| **VTR-Bench** | 2026 | benchmark · video text rendering | carrier-aware transcription + prompt-specific visual evaluation | — | eval: 300 prompts / 5 scenarios | [arXiv](https://arxiv.org/abs/2610.01499) | [code](https://github.com/hardenyu21/VTR-Bench) |
+| **UltraText Bench** | 2026 | benchmark · dense visual text rendering | bilingual multi-region fidelity / clarity / spatial / scene scoring | Chinese / English | eval: 432 prompts / 24 scene categories | [arXiv](https://arxiv.org/abs/2610.09823) | [code](https://github.com/LINs-lab/UltraText_Bench) |
+| **InfoVis** | 2026 | model · slide generation / editing | slide-native continual pretraining + SFT | — | train: 13M + 1.9M records; eval: VisSlideBench | [arXiv](https://arxiv.org/abs/2610.16784) | [code](https://github.com/VectorSpaceLab/InfoVis) |
+| **PixText** | 2026 | method · local text refinement | pixel-space grouped generation + four-step MeanFlow | — | eval: Text Refinement Bench | [arXiv](https://arxiv.org/abs/2610.18284) | — |
+| **TextVerifier** | 2026 | method · Chinese glyph verification | IDS-conditioned per-character verifier + Flow-GRPO reward | Chinese | train/eval: 12.7M crop-IDS pairs; TEXTRENDERBENCH-ZH | [arXiv](https://arxiv.org/abs/2610.19551) | — |
 
 > **口径说明**：`首发` 指首次公开年份，`论文 / Venue` 仅在官方页面可确认时标注录用 venue；`train` / `eval` / `both` 区分训练资源和评测资源；`—` 表示截至核验日未找到官方公开资源。STR 在本文中专指 **Scene Text Removal**。¹ RewriteNet 论文中的官方仓库已不可访问，因此不再提供失效链接。
 
@@ -194,6 +205,9 @@ Awesome-Text-Editing
 2026  TextFlow / EFF / Self-Prompting STE          (训练无关编辑、spillover 控制与 in-context editing)
 2026  TextSculptor / TextWand                      (大规模 paired data + 统一生成/替换/擦除 benchmark)
 2026  Qwen-Image-2.0 / Boogu-Image-0.1             (长文本、双语渲染与统一生成编辑基座)
+2026  PosterText / GlyphAnchor / LoGAN                (patch 编辑、位置锚定 glyph 与多语言字体本地化)
+2026  STEPS / IDSpect / TextVerifier                  (风格保持与字形部件级验证、结构奖励)
+2026  VTR-Bench / UltraText Bench / InfoVis / PixText (视频/密集文字评测、幻灯片编辑与局部像素修复)
 ```
 
 ## 2. 按任务分类（What to edit）
@@ -219,6 +233,8 @@ Awesome-Text-Editing
 | **STELLAR / GLASTE** | 分别面向低资源多语言的 synthetic-to-real 适配，以及大幅长度变化下的 global-local consistency |
 | **TextFlow / Edit Fidelity Field** | 训练无关 flow steering 完成替换，连续 fidelity field 抑制对邻近文字的误改 |
 | **Self-Prompting STE** | 从原图直接构造 glyph/style prompt，以 MM-DiT in-context learning 做开放词表编辑 |
+| **STEPS** | 用 contrastive style encoder 分离文字风格与内容，提升字体、颜色、方向和背景保持 |
+| **GlyphAnchor / PixText** | 分别用位置锚定 glyph prior 和 pixel-space grouped generation 做高保真替换与局部修复 |
 | **UM-Text / WeEdit** | 用 VLM 规划和 glyph-guided SFT/RL 支持自然语言、翻译、组合与 reasoning 编辑 |
 | **TextSculptor / TextWand** | 用大规模 paired data 和统一模型覆盖 replacement，并提供专用 benchmark |
 
@@ -238,6 +254,7 @@ Awesome-Text-Editing
 | **Qwen-Image / Qwen-Image-2.0** | 面向 posters、slides、infographics 等 text-rich 内容生成和编辑 |
 | **InnoAds-Composer** | 同时控制商品主体、glyph 文字和风格，面向电商海报生成 |
 | **TextSculptor / TextWand / WeEdit-Bench** | 将 addition 纳入标准训练和评测协议 |
+| **PosterText / InfoVis** | 将文字 patch 或 slide 元素作为可操作单元，支持新增、修改和布局编辑 |
 
 ### 2.3 Text Removal / Erasing（文字擦除）
 
@@ -284,6 +301,8 @@ Awesome-Text-Editing
 | **FontAdapter / StyleTextGen** | 支持参考字体快速适配、跨语言 font transfer 和双语/跨语言风格复刻 |
 | **TextPecker / GlyphPrinter / POCA** | 用结构异常 reward、region-grouped DPO 与 Pareto curriculum 改善 glyph accuracy 与美学平衡 |
 | **Qwen-Image / Qwen-Image-2.0 / Boogu-Image-0.1** | 基座模型级文字渲染，覆盖长文本、中文、海报、幻灯片和信息图 |
+| **GlyphAnchor** | 用与原生位置编码对齐的 glyph patch prior 提升长文本、密集文字和罕见字渲染 |
+| **IDSpect / TextVerifier** | 以 IDS 分解和逐字验证识别 OCR 不敏感的错笔画、错部件和空间关系 |
 | **AnyText / AnyText2** | 面向开放域 multilingual visual text generation |
 
 ### 2.5 Multilingual Visual Text（多语言文字生成与编辑）
@@ -324,6 +343,7 @@ Awesome-Text-Editing
 | **UM-Text / WeEdit** | 从自然语言理解、layout planning、翻译、重排和 reasoning 角度编辑 text-rich images |
 | **Qwen-Image-2.0** | 面向 slides、posters、infographics、comics 等 text-rich 内容生成和编辑 |
 | **InnoAds-Composer** | 面向电商产品海报，联合控制商品主体、文字和设计风格 |
+| **PosterText / InfoVis** | 分别面向电商海报 patch 编辑和 slide 原生生成/编辑，补充文本密集设计文档场景 |
 
 ### 2.7 任务 × 方法 交叉矩阵
 
@@ -333,8 +353,8 @@ Awesome-Text-Editing
 | **Addition** | — | — | GlyphControl / AnyText / UTDesign | DiffSTE / OmniText / TextWand | TextDiffuser-2 / UM-Text / WeEdit / Qwen-Image | TextSculpt / WeEdit-Bench |
 | **Removal** | EnsNet / MTRNet / EraseNet | FETNet | Stroke Erasing / PERT / PSSTRNet | DiffSTR / OmniText / TextWand | WeEdit | SCUT-EnsText / TextSculpt / TextWand |
 | **Rendering** | — | FontAdapter | GlyphDraw / Glyph-ByT5 / CharGen / GlyphPrinter | TextDiffuser / AnyText / TextCrafter / StyleTextGen | SceneVTG / TextDiffuser-2 / GlyphDraw2 | MARIO-Eval / CVTG-2K / TextInVision |
-| **Multilingual** | — | — | GlyphDraw / Glyph-ByT5-v2 / GlyphMastero | AnyText / FLUX-Text / StyleTextGen / Self-Prompting STE | UM-Text / WeEdit / Qwen-Image | MULTITEXTEDIT / UMT / WeEdit-Bench |
-| **Document / Poster** | — | layer / attribute disentanglement | UTDesign / glyph-layout control | Qwen-Image / Boogu-Image | MiLDEAgent / UM-Text / InnoAds | TextEditBench / VDE / MiLDEBench |
+| **Multilingual** | — | LoGAN / FontAdapter | GlyphDraw / Glyph-ByT5-v2 / GlyphMastero | AnyText / FLUX-Text / StyleTextGen / Self-Prompting STE | UM-Text / WeEdit / Qwen-Image | MULTITEXTEDIT / UMT / WeEdit-Bench |
+| **Document / Poster** | — | layer / attribute disentanglement | UTDesign / glyph-layout control | Qwen-Image / Boogu-Image / PosterText | MiLDEAgent / UM-Text / InfoVis / InnoAds | TextEditBench / VDE / MiLDEBench / VisSlideBench |
 
 > **怎么读这张表**：
 > - 横向看：同一个任务下有哪些技术路线。
@@ -474,6 +494,14 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[UM-Text](https://arxiv.org/abs/2601.08321) / [WeEdit](https://arxiv.org/abs/2603.11593)
   * 简介：UM-Text 用 VLM 自动规划 content/layout 和组合条件；WeEdit 以 330K 多语言样本做 glyph-guided SFT 与 multi-objective RL，覆盖八类 text-centric edits。
 
+* **STEPS**：
+  * 论文：[PAKDD 2026](https://arxiv.org/abs/2609.38636)
+  * 简介：使用独立的 contrastive style encoder 提取与文字内容解耦的视觉风格，并与字符编码和 rendered glyph 条件联合完成场景文字替换。
+
+* **PixText**：
+  * 论文：[arXiv 2610.18284](https://arxiv.org/abs/2610.18284)
+  * 简介：将局部文字修复建模为 pixel-space grouped image generation，只生成目标区域并保留未编辑内容；MeanFlow 版本支持四步推理。
+
 ### 3.4 Glyph / OCR / Layout Guided Rendering
 
 这类方法的共同点是承认普通文本编码器不足以精确控制字形，因此引入 glyph、OCR、character encoder 或 layout planner。
@@ -536,6 +564,14 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[TextPecker](https://arxiv.org/abs/2602.20903) / [GlyphPrinter](https://arxiv.org/abs/2603.15616) / [POCA](https://arxiv.org/abs/2604.24171)
   * 简介：代表 2026 年 post-training 路线：结构异常感知 reward、region-grouped DPO，以及在文字准确、美学和指令遵循间求 Pareto-optimal curriculum。
 
+* **GlyphAnchor**：
+  * 论文：[arXiv 2609.02349](https://arxiv.org/abs/2609.02349)
+  * 简介：将轻量 glyph patch 与目标图的原生位置编码锚定，兼容 text-to-image 和 image-editing DiT，并配套 InfoTextBench 评测长文本、密集排版和罕见字。
+
+* **IDSpect / TextVerifier**：
+  * 论文：[IDSpect](https://arxiv.org/abs/2609.37569) / [TextVerifier](https://arxiv.org/abs/2610.19551)
+  * 简介：把汉字拆成 IDS 部件和空间关系，用结构级 reward 或逐字 verifier 发现 OCR 和通用 VLM 容易漏掉的错笔画、错部件与布局错误。
+
 ### 3.5 Attribute and Multilingual Control
 
 当文字已经能写对之后，下一步是可控：字体、颜色、行级属性、多语言脚本、甚至文档排版。
@@ -562,6 +598,14 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[arXiv 2601.04589](https://arxiv.org/abs/2601.04589)
   * 简介：面向多层海报和设计文档，以 RL-trained multimodal reasoner 识别目标图层，再协调 image editor 执行局部修改。
 
+* **LoGAN**：
+  * 论文：[ECCV 2026](https://arxiv.org/abs/2609.07029)
+  * 简介：VLM agent 协调 glyph diffusion、字体风格微调、spacing/kerning transfer 和纹理扩展，从少量字形样例完成 27+ 语言的字体本地化。
+
+* **PosterText / InfoVis**：
+  * 论文：[PosterText](https://arxiv.org/abs/2608.16289) / [InfoVis](https://arxiv.org/abs/2610.16784)
+  * 简介：PosterText 把文字 patch 作为海报生成、添加、删除和修改的原子单位；InfoVis 面向 slide 原生数据，统一生成、编辑、布局和文本渲染。
+
 ### 3.6 Benchmark-first Frameworks
 
 最近的趋势是：单个模型结果已经不足以说明问题，领域更需要标准数据、任务划分和评测协议。
@@ -583,6 +627,14 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 * **WeEdit / TextWand**：
   * 论文：[WeEdit](https://arxiv.org/abs/2603.11593) / [TextWand](https://arxiv.org/abs/2606.05730)
   * 简介：WeEdit 提供中英与 15 语两个 2K benchmark；TextWand-Bench 含 1,500 个样本，在 generation、replacement、removal 三类任务上各 500 个。
+
+* **GlyphAnchor / UltraText Bench**：
+  * 论文：[GlyphAnchor](https://arxiv.org/abs/2609.02349) / [UltraText Bench](https://arxiv.org/abs/2610.09823)
+  * 简介：前者将 glyph prior 与位置锚定结合，后者用中英双语、4–12 个文字区域和三级难度评估 dense visual text 的 fidelity、clarity、spatial quality 与 scene quality。
+
+* **VTR-Bench / InfoVis**：
+  * 论文：[VTR-Bench](https://arxiv.org/abs/2610.01499) / [InfoVis](https://arxiv.org/abs/2610.16784)
+  * 简介：VTR-Bench 将文字保真纳入视频生成评测；InfoVis 发布 VisSlideBench，覆盖 slide 生成和编辑的多维自动评测并与人工评分对齐。
 
 * **MULTITEXTEDIT / Mind the Gap**：
   * 论文：[MULTITEXTEDIT](https://arxiv.org/abs/2605.08163) / [Mind the Gap](https://arxiv.org/abs/2606.15982)
@@ -623,6 +675,7 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | **WeEdit Dataset** | 2026 | WeEdit | 330K pairs，7 operations，15 languages | text-centric SFT / RL training |
 | **TextSculpt-Data** | 2026 | TextSculptor | 3.2M samples，1.2M OCR-verified T2I + 2M paired editing | scene text generation / editing |
 | **TextWand-72K** | 2026 | TextWand | 72K Chinese/English/symbol samples，>300 fonts | unified generation / replacement / removal |
+| **PosterText data** | 2026 | PosterText | large-scale e-commerce poster data with text-patch annotations | unified poster generation / patch editing |
 
 > ScenePair 等资源同时承担训练/评测用途；这里按“数据来源”收录，下面的 Benchmark 表再描述其评测协议。下载入口：[SCUT-Syn](https://github.com/HCIILAB/Scene-Text-Removal)、[SCUT-EnsText](https://github.com/HCIILAB/SCUT-EnsText)、[RS-STE-Dataset](https://huggingface.co/datasets/Nineve/RS-STE-Dataset)、[OTR](https://huggingface.co/datasets/cyberagent/OTR)、[TextPecker-1.5M](https://huggingface.co/datasets/CIawevy/TextPecker-1.5M)、[TextSculpt-Data](https://huggingface.co/datasets/dafbgd/TextSculpt-Data)。
 
@@ -648,6 +701,12 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | **TextSculpt-Bench** | 2026 | addition / replacement / removal / hybrid editing | English | [code/data](https://github.com/linyiheng123/TextSculptor) |
 | **TextWand-Bench** | 2026 | generation / replacement / removal，500 each | Chinese / English / symbols | [paper](https://arxiv.org/abs/2606.05730) |
 | **Constraint-discovery diagnostic** | 2026 | 461 cases / 19 secondary-constraint types | multilingual scenes | [Mind the Gap](https://arxiv.org/abs/2606.15982) |
+| **InfoTextBench** | 2026 | long, dense and rare-character rendering in generation/editing | — | [GlyphAnchor](https://arxiv.org/abs/2609.02349) |
+| **Text Refinement Bench** | 2026 | local text correction and image preservation | — | [PixText](https://arxiv.org/abs/2610.18284) |
+| **TEXTRENDERBENCH-ZH** | 2026 | per-character Chinese rendering correctness / 7,358 annotations | Chinese | [TextVerifier](https://arxiv.org/abs/2610.19551) |
+| **VisSlideBench** | 2026 | slide generation and editing / 11 multidimensional metrics | — | [InfoVis](https://arxiv.org/abs/2610.16784) |
+| **UltraText Bench** | 2026 | dense multi-region visual text / 432 prompts | Chinese / English | [paper](https://arxiv.org/abs/2610.09823) / [code](https://github.com/LINs-lab/UltraText_Bench) |
+| **VTR-Bench** | 2026 | video visual text rendering / 300 prompts and 5 scenarios | — | [paper](https://arxiv.org/abs/2610.01499) / [code](https://github.com/hardenyu21/VTR-Bench) |
 
 ### 4.3 常用评测指标
 
@@ -693,6 +752,7 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | **TMIM** | text-aware masked image modeling for removal | [wzx99/TMIM](https://github.com/wzx99/TMIM) |
 | **UDiffText / UTDesign** | character-aware synthesis / bilingual graphic-design editing | [UDiffText](https://github.com/ZYM-PKU/UDiffText) / [UTDesign](https://github.com/ZYM-PKU/UTDesign) |
 | **VDE Bench / WeEdit** | document/text-centric editing datasets and evaluation | [VDE-Bench](https://github.com/zion-zion-zion/VDE-Bench) / [WeEdit](https://github.com/HuiZhang0812/WeEdit) |
+| **InfoVis / UltraText / VTR-Bench** | slide, dense visual text and video text evaluation | [InfoVis](https://github.com/VectorSpaceLab/InfoVis) / [UltraText Bench](https://github.com/LINs-lab/UltraText_Bench) / [VTR-Bench](https://github.com/hardenyu21/VTR-Bench) |
 
 ## 6. 相关方向
 
