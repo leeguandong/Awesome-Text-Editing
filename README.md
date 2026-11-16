@@ -13,7 +13,7 @@ Awesome-Text-Editing
 
 > A curated list of text-in-image generation and editing methods, covering scene text replacement, text insertion, text removal, multilingual visual text rendering, style-preserving editing, and visual document editing.
 
-> **Last updated / 文献截止 / 链接核验：2026-10-19** · 年份按首次公开时间记录；已确认的会议/期刊另行标注。
+> **Last updated / 文献检索截止：2026-11-16** · 本轮核验新增与变更资源；历史链接沿用各次核验记录。年份按首次公开时间记录；已确认的会议/期刊另行标注。
 
 本项目旨在收集和梳理 **图像中文字编辑（Text-in-Image Editing / Scene Text Editing）** 相关工作，包括自然场景文字替换、广告海报文字生成、文档图像文字编辑、多语言文字渲染、文字擦除与重绘、OCR / glyph / layout 约束生成，以及对应的数据集与评测基准。
 
@@ -55,6 +55,7 @@ Awesome-Text-Editing
 - [1. 代表工作汇总](#1-代表工作汇总)
   - [1.1 论文与项目全景表](#11-论文与项目全景表)
   - [1.2 演化时间线](#12-演化时间线)
+  - [1.3 近期进展与资源状态](#13-近期进展与资源状态)
 - [2. 按任务分类（What to edit）](#2-按任务分类what-to-edit)
   - [2.1 Scene Text Replacement（场景文字替换）](#21-scene-text-replacement场景文字替换)
   - [2.2 Text Addition / Insertion（文字插入）](#22-text-addition--insertion文字插入)
@@ -62,7 +63,8 @@ Awesome-Text-Editing
   - [2.4 Visual Text Rendering（图像文字生成）](#24-visual-text-rendering图像文字生成)
   - [2.5 Multilingual Visual Text（多语言文字生成与编辑）](#25-multilingual-visual-text多语言文字生成与编辑)
   - [2.6 Visual Document Editing（视觉文档与设计图编辑）](#26-visual-document-editing视觉文档与设计图编辑)
-  - [2.7 任务 × 方法 交叉矩阵](#27-任务--方法-交叉矩阵)
+  - [2.7 Video Text Editing（视频文字编辑）](#27-video-text-editing视频文字编辑)
+  - [2.8 任务 × 方法 交叉矩阵](#28-任务--方法-交叉矩阵)
 - [3. 按方法范式详述（How to edit）](#3-按方法范式详述how-to-edit)
   - [3.1 GAN / Translation-based Editing](#31-gan--translation-based-editing)
   - [3.2 Decomposition / Stroke / Style Guidance](#32-decomposition--stroke--style-guidance)
@@ -81,6 +83,7 @@ Awesome-Text-Editing
 
 ## 最近更新
 
+- **2026-11-16**：检索 2026-10-20 至 2026-11-16 的新进展，新增 TextRIRO、HarmonyText、FlowTranslator、NitroFusion2、StepX-OPD、Four-Step Text-Bearing Image Generation、Krea 3、WeGenEditBench，并回补 InnoText、TextRefine、SenseNova-U1.5、Qwen-Image-2.1 / Turbo、MOSS-Image、InfoEdit 和视频文字编辑工作；补齐 PixText / TextVerifier / TextCtrl 的官方资源，记录 TailSteer 与 GlyphAnchor 的发布状态。
 - **2026-10-19**：补充 2026-08-08 之后的 PixText、TextVerifier、IDSpect、GlyphAnchor、STEPS、LoGAN、PosterText、InfoVis、UltraText Bench、VTR-Bench 等工作，新增像素级局部修复、IDS 字形结构验证、密集文字与视频文字评测条目。
 - **2026-08-08**：补充 JoyType、RepText、EasyText、ControlText、DanceText、TextSculptor 等最新工作，更新文献截止日期和链接核验。
 - **2026-07-19**：补充 TextWand、Self-Prompting STE、TextFlow、WeEdit、MiLDEdit、GlyphPrinter、TextPecker 等 2026 年工作，并回补 GlyphMastero、RS-STE、TextMastero、ViTEraser 等代表性方法。
@@ -128,7 +131,7 @@ Awesome-Text-Editing
 | **TextMastero** | 2024 | method · replacement | glyph conditioning + latent style guidance | multilingual / CJK | eval: public STE datasets | [arXiv](https://arxiv.org/abs/2408.10623) | — |
 | **TMIM** | 2024 | method · removal | text-aware masked image modeling | language-agnostic | train: detection labels; eval: SCUT-EnsText | [ECCV 2024](https://arxiv.org/abs/2409.13431) | [code](https://github.com/wzx99/TMIM) |
 | **JoyType** | 2024 | method · multilingual rendering | font style preservation + canny edge guidance | multilingual | train: JoyType-1M | [arXiv](https://arxiv.org/abs/2409.17524) | [code](https://github.com/jdh-algo/JoyType) |
-| **TextCtrl** | 2024 | method · replacement | style-structure guidance + mutual self-attention | English | both: ScenePair | [NeurIPS 2024](https://arxiv.org/abs/2410.10133) | — |
+| **TextCtrl** | 2024 | method · replacement | style-structure guidance + mutual self-attention | English | both: ScenePair | [NeurIPS 2024](https://arxiv.org/abs/2410.10133) | [code](https://github.com/weichaozeng/TextCtrl) |
 | **DiffSTR** | 2024 | method · removal | ControlNet diffusion + mask refinement | language-agnostic | eval: SCUT-EnsText / SCUT-Syn | [arXiv](https://arxiv.org/abs/2410.21721) | — |
 | **AnyText2** | 2024 | method · generation / editing | line-level font and color control | multilingual | eval: multilingual benchmarks | [arXiv](https://arxiv.org/abs/2411.15245) | [code](https://github.com/tyxsspa/AnyText2) |
 | **CharGen** | 2024 | method · generation / editing | character-level multimodal encoder + perceptual loss | Chinese / English | eval: AnyText-benchmark / MARIO-Eval | [arXiv](https://arxiv.org/abs/2412.17225) | — |
@@ -170,16 +173,31 @@ Awesome-Text-Editing
 | **TextWand** | 2026 | method · unified generation / replacement / removal | ORPE + region-adaptive suppression | Chinese / English / symbols | train: TextWand-72K; eval: TextWand-Bench (1.5K) | [arXiv](https://arxiv.org/abs/2606.05730) | — |
 | **Mind the Gap** | 2026 | analysis · edit-constraint discovery | 19-type causal dependency diagnostic | multilingual scenes | eval: 461 diagnostic cases | [arXiv](https://arxiv.org/abs/2606.15982) | — |
 | **Boogu-Image-0.1** | 2026 | foundation model · generation / editing | unified model family + agentic inference scaling | Chinese / English | train: 208.62M unique images | [technical report](https://arxiv.org/abs/2607.13125) | [code](https://github.com/Boogu-Project/Boogu-Image) |
+| **InnoText** | 2026 | model · generation / editing | font-size-aware modulation + small-character augmentation + region-weighted loss | Chinese / English | train/eval: custom bilingual visual-text data | [ECCV 2026](https://arxiv.org/abs/2607.22101) | — |
+| **SenseNova-U1.5** | 2026 | foundation model · text-rich generation / editing | 8B-MoT, encoder/VAE-free visual path + multi-expert distillation | Chinese / English | eval: text rendering / infographic / editing benchmarks | [technical report](https://arxiv.org/abs/2609.11929) | [code](https://github.com/OpenSenseNova/SenseNova-U1) / [model](https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT) |
 | **PosterText** | 2026 | framework · poster generation / editing | text-patch atomic operations + curriculum / RL / spatial self-distillation | — | train/eval: patch-level e-commerce poster data / benchmark | [arXiv](https://arxiv.org/abs/2608.16289) | — |
-| **GlyphAnchor** | 2026 | method · rendering / editing | position-anchored glyph patch priors + text-aware post-training | — | eval: InfoTextBench | [arXiv](https://arxiv.org/abs/2609.02349) | — |
+| **TextRefine** | 2026 | method · poster text insertion / replacement | operation-specific rewards + target-character CTC supervision | — | data: OpenTextEdit (100K images) | [arXiv](https://arxiv.org/abs/2608.19637) | — |
+| **GlyphAnchor** | 2026 | method · rendering / editing | position-anchored glyph patch priors + text-aware post-training | — | eval: InfoTextBench | [NeurIPS 2026](https://arxiv.org/abs/2609.02349) | —（代码 / benchmark 待发布） |
 | **LoGAN** | 2026 | framework · font localization | VLM agent + glyph diffusion + spacing/kerning transfer | 27+ languages | eval: multilingual font / logo datasets | [ECCV 2026](https://arxiv.org/abs/2609.07029) | — |
+| **Qwen-Image-2.1 / Turbo** | 2026 | foundation model · generation / editing / RGBA | 7B single-stream DiT + mixed-granularity attention + prefix KV reuse | multilingual | showcases: typography / multi-reference / local editing | [official release](https://github.com/QwenLM/Qwen-Image-2.1) | [model](https://huggingface.co/Qwen/Qwen-Image-2.1) / [8-step Turbo](https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo) |
+| **InfoEdit** | 2026 | benchmark · infographic editing | global layout reflow + logical-relation-aware evaluation | — | eval: 1,000 infographics / 4,000 instructions | [arXiv](https://arxiv.org/abs/2609.33286) | [code](https://github.com/InfoEdit/InfoEdit) / [data](https://huggingface.co/datasets/InfoEdit/InfoEdit) |
+| **Trajectory-Aligned Glyph Rendering** | 2026 | method · video text replacement / addition | per-frame trajectory-aligned glyphs + depth-normalized recognizer supervision | — | eval: VTEdit (288 clips / 440 text trajectories) | [arXiv](https://arxiv.org/abs/2609.34178) | — |
 | **STEPS** | 2026 | method · replacement | contrastive style encoder + glyph and character conditions | — | eval: scene text editing benchmarks | [PAKDD 2026](https://arxiv.org/abs/2609.38636) | — |
 | **IDSpect** | 2026 | method · rendering optimization | IDS component/spatial reward for Chinese glyph structure | Chinese | train/eval: IDS recognizer + LongText / GenTextEval | [arXiv](https://arxiv.org/abs/2609.37569) | — |
 | **VTR-Bench** | 2026 | benchmark · video text rendering | carrier-aware transcription + prompt-specific visual evaluation | — | eval: 300 prompts / 5 scenarios | [arXiv](https://arxiv.org/abs/2610.01499) | [code](https://github.com/hardenyu21/VTR-Bench) |
 | **UltraText Bench** | 2026 | benchmark · dense visual text rendering | bilingual multi-region fidelity / clarity / spatial / scene scoring | Chinese / English | eval: 432 prompts / 24 scene categories | [arXiv](https://arxiv.org/abs/2610.09823) | [code](https://github.com/LINs-lab/UltraText_Bench) |
 | **InfoVis** | 2026 | model · slide generation / editing | slide-native continual pretraining + SFT | — | train: 13M + 1.9M records; eval: VisSlideBench | [arXiv](https://arxiv.org/abs/2610.16784) | [code](https://github.com/VectorSpaceLab/InfoVis) |
-| **PixText** | 2026 | method · local text refinement | pixel-space grouped generation + four-step MeanFlow | — | eval: Text Refinement Bench | [arXiv](https://arxiv.org/abs/2610.18284) | — |
-| **TextVerifier** | 2026 | method · Chinese glyph verification | IDS-conditioned per-character verifier + Flow-GRPO reward | Chinese | train/eval: 12.7M crop-IDS pairs; TEXTRENDERBENCH-ZH | [arXiv](https://arxiv.org/abs/2610.19551) | — |
+| **PixText** | 2026 | method · local text refinement | pixel-space grouped generation + four-step MeanFlow | — | eval: Text Refinement Bench | [arXiv](https://arxiv.org/abs/2610.18284) | [code](https://github.com/ATH-MaaS/PixText) / [model](https://huggingface.co/ATH-MaaS/PixText) |
+| **TextVerifier** | 2026 | method · Chinese glyph verification | IDS-conditioned per-character verifier + Flow-GRPO reward | Chinese | train/eval: 12.7M crop-IDS pairs; TEXTRENDERBENCH-ZH | [arXiv](https://arxiv.org/abs/2610.19551) | [code](https://github.com/ATH-MaaS/TextVerifier) / [model](https://huggingface.co/ATH-MaaS/TextVerifier-CJK-CLIP) |
+| **MOSS-Image** | 2026 | foundation model · text-rich rendering / layout | 5B single-stream DiT + intention-aware prompt enhancement | Chinese / English | eval: LongLongTextBench / RealLayoutArena | [technical report](https://arxiv.org/abs/2610.23374) | [code](https://github.com/OpenMOSS/MOSS-Image) / [Base](https://huggingface.co/OpenMOSS-Team/MOSS-Image-Base) / [SFT](https://huggingface.co/OpenMOSS-Team/MOSS-Image-SFT) |
+| **TextRIRO** | 2026 | method · replacement | real-image self-pairs via Shuffle&Crop + style / text-recognition conditioning | English / alphanumeric | train: U14M-Filter; eval: ScenePair / RIROCommon | [NeurIPS 2026](https://arxiv.org/abs/2610.27592) | [code](https://github.com/YesianRohn/TextRIRO) / [model](https://huggingface.co/Yesianrohn/TextRIRO) |
+| **WeGenEditBench / WeGenEvoStudio** | 2026 | benchmark / framework · includes text-intensive editing | atomic requirement checklists + failure-guided data / adaptation | — | eval: 2,740 instances / 148 task types across all tracks | [arXiv](https://arxiv.org/abs/2610.41210) | — |
+| **FlowTranslator** | 2026 | method · in-image machine translation | OCR / LLM translation prompts + RCR / CE flow trajectory controls | cross-lingual; includes Chinese targets | eval: PRIM / ScenePair-to-Chinese | [arXiv](https://arxiv.org/abs/2611.04303) | — |
+| **StepX-OPD** | 2026 | method · few-step rendering / capability distillation | joint multi-teacher on-policy and step distillation | — | eval: SD3.5-Medium / FLUX.1-dev, including text rendering | [arXiv](https://arxiv.org/abs/2611.04386) | — |
+| **NitroFusion2** | 2026 | model / method · 1–2-step rendering | text-stream adversarial distillation + aspect-cued discrimination | — | eval: few-step generation / typography | [arXiv](https://arxiv.org/abs/2611.05648) | [code](https://github.com/ChenDarYen/NitroFusion2) / [model](https://huggingface.co/ChenDY/NitroFusion2) |
+| **Krea 3** | 2026 | foundation model · text-rich image editing | native 2K training + text / typography / region rewards | multilingual examples | eval: public text-editing benchmarks / CPI-Bench | [technical report](https://www.krea.ai/blog/krea-3-technical-report) | [hosted model](https://www.krea.ai/) |
+| **Four-Step Text-Bearing Image Generation** | 2026 | method · four-step text rendering | GLM-Image distribution matching + local response regularization + teacher text training | — | eval: CVTG-2K / GenEval; Qwen-Image transfer experiments | [arXiv](https://arxiv.org/abs/2611.12042) | — |
+| **HarmonyText** | 2026 | method · mask-free replacement | RePair data synthesis + region-decoupled / high-frequency supervision | Chinese / English | train: STE25K; eval: HarmonyText-Bench | [arXiv](https://arxiv.org/abs/2611.17733) | — |
 
 > **口径说明**：`首发` 指首次公开年份，`论文 / Venue` 仅在官方页面可确认时标注录用 venue；`train` / `eval` / `both` 区分训练资源和评测资源；`—` 表示截至核验日未找到官方公开资源。STR 在本文中专指 **Scene Text Removal**。¹ RewriteNet 论文中的官方仓库已不可访问，因此不再提供失效链接。
 
@@ -208,7 +226,29 @@ Awesome-Text-Editing
 2026  PosterText / GlyphAnchor / LoGAN                (patch 编辑、位置锚定 glyph 与多语言字体本地化)
 2026  STEPS / IDSpect / TextVerifier                  (风格保持与字形部件级验证、结构奖励)
 2026  VTR-Bench / UltraText Bench / InfoVis / PixText (视频/密集文字评测、幻灯片编辑与局部像素修复)
+2026  InnoText / TextRefine / TextRIRO / HarmonyText (小字、操作特定奖励、真实自监督与区域/频域监督)
+2026  Qwen-Image-2.1 / SenseNova-U1.5 / MOSS-Image (RGBA、多图编辑、原生高分辨率与长文本布局)
+2026  FlowTranslator / Trajectory-Aligned Glyph Rendering (图内翻译与视频轨迹对齐改字)
+2026  NitroFusion2 / StepX-OPD / Four-Step Generation (少步采样与文字渲染能力的联合保留)
+2026  Krea 3 / InfoEdit / WeGenEditBench            (文字/排版/区域奖励与布局、清单式评测)
 ```
+
+### 1.3 近期进展与资源状态
+
+本轮重点检索 **2026-10-20 至 2026-11-16**，并回补此前漏收的相关发布。以下比较依据各自论文或官方说明，未在统一环境复测；不同 benchmark 的分数不作横向排名。
+
+| 方向 / 工作 | 本轮关注点 | 截至 2026-11-16 的公开状态 |
+|-------------|------------|-------------------------|
+| **TextRIRO / HarmonyText** | 前者用真实图像扰动构造自监督；后者把编辑区对齐伪 GT、保留区对齐源图，并加入高频约束 | TextRIRO 已有代码、权重和数据；HarmonyText 目前仅核实[论文](https://arxiv.org/abs/2611.17733) |
+| **FlowTranslator** | 将多语言生成能力用于完整图内翻译，以轨迹控制协调文字变化和上下文保持 | 已有[论文](https://arxiv.org/abs/2611.04303)，未核实到官方代码 / 权重 |
+| **Qwen-Image-2.1 / Turbo** | 7B 视觉生成组件、原生 RGBA、最多 10 张参考图；10 月 9 日发布 8 步 Turbo | [代码与发布记录](https://github.com/QwenLM/Qwen-Image-2.1)、Base / Turbo 权重公开；模型卡使用 Qwen Research License |
+| **SenseNova-U1.5 / TailSteer** | 原生 4K、中英文字与编辑；9 月 24 日更新 8 步 V2 LoRA，11 月 4 日发布抑制多轮漂移的 TailSteer | [官方记录](https://github.com/OpenSenseNova/SenseNova-U1)与[模型](https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-TailSteer)可用；TailSteer 是完整 checkpoint，8 步 V2 是需基模的独立 LoRA，二者分别发布 |
+| **MOSS-Image** | 长段中英文与结构布局；Base / SFT 和 prompt enhancement 构成公开生成系统 | [代码](https://github.com/OpenMOSS/MOSS-Image)与权重可用；官方 Base / SFT 发布范围为 text-to-image |
+| **NitroFusion2 / StepX-OPD / Four-Step Text-Bearing Image Generation** | 分别从 text-stream 对抗蒸馏、多专家与步数联合蒸馏、局部响应正则保留少步文字质量 | NitroFusion2 已有代码 / 权重，11 月 12 日另发 ControlNet-Union；后两项目前仅核实论文 |
+| **Krea 3** | 2K 训练与文字内容、排版、区域保持奖励；报告讨论奖励导致字重和字号漂移的问题 | 11 月 3 日发布[技术报告](https://www.krea.ai/blog/krea-3-technical-report)；可通过托管产品使用，未核实公开权重 |
+| **PixText / TextVerifier / GlyphAnchor** | 局部文字修复、结构错误验证与位置锚定 glyph 三条路线 | PixText / TextVerifier 已有代码、模型与评测数据；GlyphAnchor 的[官方公告](https://github.com/FireRedTeam/GlyphAnchor/blob/main/README.md)仍标记代码和 InfoTextBench 待发布 |
+
+> **资源口径**：论文、项目公告、可执行代码、模型权重与数据分别核验；“未核实到”不等于承诺后续一定发布。`—` 不作为已开源实现。仓库自身的 Apache-2.0 许可不替代各模型 / 数据的许可。
 
 ## 2. 按任务分类（What to edit）
 
@@ -237,6 +277,11 @@ Awesome-Text-Editing
 | **GlyphAnchor / PixText** | 分别用位置锚定 glyph prior 和 pixel-space grouped generation 做高保真替换与局部修复 |
 | **UM-Text / WeEdit** | 用 VLM 规划和 glyph-guided SFT/RL 支持自然语言、翻译、组合与 reasoning 编辑 |
 | **TextSculptor / TextWand** | 用大规模 paired data 和统一模型覆盖 replacement，并提供专用 benchmark |
+| **TextRIRO** | 在真实图像上做 Shuffle&Crop 构造监督，减少合成训练对的域差 |
+| **HarmonyText** | mask-free 指令改字，通过区域解耦与高频监督保持背景和文字纹理 |
+| **InnoText / TextRefine** | 分别强化小字尺度建模，以及海报替换中的细粒度字形奖励 |
+| **FlowTranslator** | 结合 OCR、翻译指令和 flow 轨迹控制完成图内翻译 |
+| **Qwen-Image-2.1 / SenseNova-U1.5 / Krea 3** | 提供通用基座中的文字编辑与局部保持能力，资源状态见 1.3 |
 
 ### 2.2 Text Addition / Insertion（文字插入）
 
@@ -255,6 +300,7 @@ Awesome-Text-Editing
 | **InnoAds-Composer** | 同时控制商品主体、glyph 文字和风格，面向电商海报生成 |
 | **TextSculptor / TextWand / WeEdit-Bench** | 将 addition 纳入标准训练和评测协议 |
 | **PosterText / InfoVis** | 将文字 patch 或 slide 元素作为可操作单元，支持新增、修改和布局编辑 |
+| **InnoText / TextRefine** | 统一生成编辑，或用 text-span 奖励兼顾插入覆盖率、商品避让与布局冲突 |
 
 ### 2.3 Text Removal / Erasing（文字擦除）
 
@@ -304,6 +350,9 @@ Awesome-Text-Editing
 | **GlyphAnchor** | 用与原生位置编码对齐的 glyph patch prior 提升长文本、密集文字和罕见字渲染 |
 | **IDSpect / TextVerifier** | 以 IDS 分解和逐字验证识别 OCR 不敏感的错笔画、错部件和空间关系 |
 | **AnyText / AnyText2** | 面向开放域 multilingual visual text generation |
+| **InnoText / MOSS-Image** | 分别强化小字、多尺度渲染，以及中英长文本和结构布局 |
+| **Qwen-Image-2.1 / SenseNova-U1.5** | 统一生成编辑基座提供高分辨率文字能力及各自的 8 步版本 |
+| **NitroFusion2 / StepX-OPD / Four-Step Text-Bearing Image Generation** | 关注 1–4 步采样下的文字保真，具体能力与公开状态分别记录 |
 
 ### 2.5 Multilingual Visual Text（多语言文字生成与编辑）
 
@@ -329,6 +378,8 @@ Awesome-Text-Editing
 | **Qwen-Image / Qwen-Image-2.0** | 通过大规模数据和渐进训练强化中英等多语言 text-rich generation/editing |
 | **VDE Bench** | 覆盖中英文复杂视觉文档编辑 |
 | **MULTITEXTEDIT** | 3,600 个实例、12 种语言、5 个视觉域、7 类编辑操作，专门评估跨语言退化 |
+| **InnoText / MOSS-Image / SenseNova-U1.5** | 补充中英文生成、长文本与文字编辑路线 |
+| **FlowTranslator** | 评估完整图内翻译，包含 PRIM 与 ScenePair 翻译为中文的设置 |
 
 ### 2.6 Visual Document Editing（视觉文档与设计图编辑）
 
@@ -344,17 +395,30 @@ Awesome-Text-Editing
 | **Qwen-Image-2.0** | 面向 slides、posters、infographics、comics 等 text-rich 内容生成和编辑 |
 | **InnoAds-Composer** | 面向电商产品海报，联合控制商品主体、文字和设计风格 |
 | **PosterText / InfoVis** | 分别面向电商海报 patch 编辑和 slide 原生生成/编辑，补充文本密集设计文档场景 |
+| **TextRefine / Krea 3** | 关注商品海报文字插入、替换，以及文字内容与排版风格的共同约束 |
+| **InfoEdit** | 1,000 张信息图、4,000 条指令，专门诊断修改后的全局布局 reflow |
+| **WeGenEditBench** | 通用编辑评测中单列 text-intensive 轨道，以原子要求清单定位失败 |
 
-### 2.7 任务 × 方法 交叉矩阵
+### 2.7 Video Text Editing（视频文字编辑）
+
+**目标**：替换或新增视频中的文字，使字形在每一帧准确，并随载体的位置、透视和运动保持连贯。
+
+| 工作 | 主要特点 |
+|------|----------|
+| **Trajectory-Aligned Glyph Rendering / VTEdit** | 逐帧对齐轨迹的 glyph 参考与识别器特征监督；VTEdit 含 288 段视频、440 条文字轨迹，覆盖替换和新增 |
+| **VTR-Bench** | 视频文字生成的补充评测，关注载体上的文字转录与视觉质量；区别于有源视频的文字编辑任务 |
+
+### 2.8 任务 × 方法 交叉矩阵
 
 | 任务 \ 方法 | GAN / Translation | Decomposition / Recognition | Stroke / Glyph / Layout | Diffusion / Flow | MLLM / Agent | Data / Benchmark |
 |-------------|:-----------------:|:---------------------------:|:-----------------------:|:----------------:|:------------:|:----------------:|
-| **Replacement** | STEFANN / SRNet / SwapText | RewriteNet / RS-STE / TripleFDS | MOSTEL / TextCtrl / GlyphMastero | DiffSTE / DiffUTE / FLUX-Text / OmniText / TextFlow / Self-Prompting STE / TextWand | UM-Text / Qwen-Image | ScenePair / TextSculpt / WeEdit / TextWand |
+| **Replacement** | STEFANN / SRNet / SwapText | RewriteNet / RS-STE / TripleFDS | MOSTEL / TextCtrl / GlyphMastero | DiffSTE / DiffUTE / FLUX-Text / OmniText / TextFlow / Self-Prompting STE / TextWand / TextRIRO / HarmonyText | UM-Text / Qwen-Image | ScenePair / TextSculpt / WeEdit / TextWand / RIROCommon / HarmonyText-Bench |
 | **Addition** | — | — | GlyphControl / AnyText / UTDesign | DiffSTE / OmniText / TextWand | TextDiffuser-2 / UM-Text / WeEdit / Qwen-Image | TextSculpt / WeEdit-Bench |
 | **Removal** | EnsNet / MTRNet / EraseNet | FETNet | Stroke Erasing / PERT / PSSTRNet | DiffSTR / OmniText / TextWand | WeEdit | SCUT-EnsText / TextSculpt / TextWand |
 | **Rendering** | — | FontAdapter | GlyphDraw / Glyph-ByT5 / CharGen / GlyphPrinter | TextDiffuser / AnyText / TextCrafter / StyleTextGen | SceneVTG / TextDiffuser-2 / GlyphDraw2 | MARIO-Eval / CVTG-2K / TextInVision |
 | **Multilingual** | — | LoGAN / FontAdapter | GlyphDraw / Glyph-ByT5-v2 / GlyphMastero | AnyText / FLUX-Text / StyleTextGen / Self-Prompting STE | UM-Text / WeEdit / Qwen-Image | MULTITEXTEDIT / UMT / WeEdit-Bench |
-| **Document / Poster** | — | layer / attribute disentanglement | UTDesign / glyph-layout control | Qwen-Image / Boogu-Image / PosterText | MiLDEAgent / UM-Text / InfoVis / InnoAds | TextEditBench / VDE / MiLDEBench / VisSlideBench |
+| **Document / Poster** | — | layer / attribute disentanglement | UTDesign / glyph-layout control | Qwen-Image / Boogu-Image / PosterText / TextRefine / Krea 3 | MiLDEAgent / UM-Text / InfoVis / InnoAds / MOSS-Image | TextEditBench / VDE / MiLDEBench / VisSlideBench / InfoEdit / WeGenEditBench |
+| **Video text editing** | — | recognizer-feature supervision | trajectory-aligned glyph reference | Trajectory-Aligned Glyph Rendering | — | VTEdit |
 
 > **怎么读这张表**：
 > - 横向看：同一个任务下有哪些技术路线。
@@ -499,8 +563,38 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 简介：使用独立的 contrastive style encoder 提取与文字内容解耦的视觉风格，并与字符编码和 rendered glyph 条件联合完成场景文字替换。
 
 * **PixText**：
+  * 资源：[代码](https://github.com/ATH-MaaS/PixText) / [Teacher 与 MeanFlow 模型](https://huggingface.co/ATH-MaaS/PixText) / [TextRefinementBench](https://huggingface.co/datasets/ATH-MaaS/TextRefinementBench)
   * 论文：[arXiv 2610.18284](https://arxiv.org/abs/2610.18284)
   * 简介：将局部文字修复建模为 pixel-space grouped image generation，只生成目标区域并保留未编辑内容；MeanFlow 版本支持四步推理。
+
+* **InnoText / TextRefine**：
+  * 论文：[InnoText · ECCV 2026](https://arxiv.org/abs/2607.22101) / [TextRefine](https://arxiv.org/abs/2608.19637)
+  * 简介：InnoText 以字体尺度调制、小字增强与区域加权损失统一生成和编辑。TextRefine 则针对海报插入、替换设计不同奖励，分别处理文字覆盖、商品遮挡与目标字 CTC 后验反映的字形缺陷。
+
+* **TextRIRO**：
+  * 论文：[NeurIPS 2026](https://arxiv.org/abs/2610.27592) · [代码](https://github.com/YesianRohn/TextRIRO) · [模型](https://huggingface.co/Yesianrohn/TextRIRO)
+  * 简介：在真实文字图像上打乱字符列并裁剪，保留风格线索而破坏内容，以原图重建学习编辑。真实数据指 STE 监督与文字识别编码器预训练；生成骨干仍使用预训练 Stable Diffusion 组件。
+  * 数据：U14M-Filter 用于训练；RIROCommon 用于等长 / 变长编辑评测；TextRIRO-3M 是由编辑结果构造的下游长文本识别数据。
+
+* **HarmonyText**：
+  * 论文：[arXiv 2611.17733](https://arxiv.org/abs/2611.17733)
+  * 简介：基于 FireRed-Image-Edit-v1.1 做 mask-free 中英文改字。RePair 反向精炼后生成 STE25K；RDO 分别约束编辑区与保留区，CHFTG 加入级联小波高频监督，减少背景漂移和边缘平滑。配套 155 图 HarmonyText-Bench，以及无需成对目标 GT 的颜色分布差异 CDD 和局部和谐评估 HAM；代码 / 数据下载尚未核实。
+
+* **FlowTranslator**：
+  * 论文：[arXiv 2611.04303](https://arxiv.org/abs/2611.04303)
+  * 简介：training-free 图内机器翻译。OCR 与 LLM 产生目标文字指令，RCR 在早期局部解除噪声耦合，CE 在中期放大编辑位移；评测同时覆盖翻译结果与图像中文字读回，不能直接与只接受给定目标文字的编辑系统等同。
+
+* **Qwen-Image-2.1 / SenseNova-U1.5**：
+  * 资源：[Qwen 官方发布](https://github.com/QwenLM/Qwen-Image-2.1) / [SenseNova 技术报告](https://arxiv.org/abs/2609.11929) / [SenseNova 官方代码](https://github.com/OpenSenseNova/SenseNova-U1)
+  * 简介：前者以 7B single-stream DiT、原生 RGBA 和 prefix KV 复用统一生成与多图编辑；后者以 encoder-free / VAE-free 的 8B-MoT 与空间连续重建强化 4K、中英文字和编辑能力。分别提供 Turbo 与 8 步 LoRA，模型与适配器的发布形态见 1.3。
+
+* **Krea 3**：
+  * 报告：[Krea 3 Technical Report · 2026-11-03](https://www.krea.ai/blog/krea-3-technical-report)
+  * 简介：托管图像编辑模型。报告将原生 2K 训练与文字细节保持联系起来，并将须保留、替换、删除的文字分开计划，再联合文字读回、排版适配和区域保持奖励；额外约束字号，抑制为提高识别分数而改变字重、大小和风格的奖励投机。
+
+* **Trajectory-Aligned Glyph Rendering**：
+  * 论文：[Enhanced Video Text Editing with Trajectory-Aligned Glyph Rendering](https://arxiv.org/abs/2609.34178)
+  * 简介：用随文字轨迹逐帧变化的 glyph 参考约束视频改字，并在冻结识别器的不同深度施加归一化特征监督；VTEdit 的替换 / 新增设置同时检查文字准确和时序一致性。
 
 ### 3.4 Glyph / OCR / Layout Guided Rendering
 
@@ -565,12 +659,26 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 简介：代表 2026 年 post-training 路线：结构异常感知 reward、region-grouped DPO，以及在文字准确、美学和指令遵循间求 Pareto-optimal curriculum。
 
 * **GlyphAnchor**：
-  * 论文：[arXiv 2609.02349](https://arxiv.org/abs/2609.02349)
+  * 论文：[NeurIPS 2026](https://arxiv.org/abs/2609.02349) · [OpenReview](https://openreview.net/forum?id=c3aMyawBN4)
+  * 状态：截至 2026-11-16，官方仓库仅有公告与素材，代码及 InfoTextBench 尚待发布。
   * 简介：将轻量 glyph patch 与目标图的原生位置编码锚定，兼容 text-to-image 和 image-editing DiT，并配套 InfoTextBench 评测长文本、密集排版和罕见字。
 
 * **IDSpect / TextVerifier**：
+  * TextVerifier 资源：[代码](https://github.com/ATH-MaaS/TextVerifier) / [模型](https://huggingface.co/ATH-MaaS/TextVerifier-CJK-CLIP) / [TextRenderBench-ZH](https://huggingface.co/datasets/ATH-MaaS/TextRenderBench-ZH)
   * 论文：[IDSpect](https://arxiv.org/abs/2609.37569) / [TextVerifier](https://arxiv.org/abs/2610.19551)
   * 简介：把汉字拆成 IDS 部件和空间关系，用结构级 reward 或逐字 verifier 发现 OCR 和通用 VLM 容易漏掉的错笔画、错部件与布局错误。
+
+* **MOSS-Image**：
+  * 论文：[technical report](https://arxiv.org/abs/2610.23374) · [代码与模型入口](https://github.com/OpenMOSS/MOSS-Image)
+  * 简介：5B single-stream DiT 配合意图感知 prompt enhancement，将请求展开为内容和布局规格，支持中英文长段文字与复杂构图。发布 Base / SFT；以 LongLongTextBench 和 RealLayoutArena 分别评估文字覆盖与整体布局。
+
+* **NitroFusion2 / StepX-OPD**：
+  * 论文：[NitroFusion2](https://arxiv.org/abs/2611.05648) / [StepX-OPD](https://arxiv.org/abs/2611.04386)
+  * 简介：NitroFusion2 在 MMDiT 的文字流中做对抗判别，并用 aspect cues 关注排版等属性；公开的 Z-Image-Turbo 派生模型支持 1–2 步生成。StepX-OPD 将多专家能力融合与少步蒸馏合并，避免先融合再压缩造成的能力损失，同时研究非文字请求中意外生成文字的现象。
+
+* **Four-Step Text-Bearing Image Generation**：
+  * 论文：[完整标题与摘要](https://arxiv.org/abs/2611.12042)
+  * 简介：对 GLM-Image 的 DiT 做四步分布匹配蒸馏，保留其 AR visual prior、glyph encoder 与 VAE，并加入局部响应正则、合成文字与教师图像训练。论文报告 CVTG-2K 与 GenEval，并在 Qwen-Image 上验证迁移；未核实公开代码 / 权重。
 
 ### 3.5 Attribute and Multilingual Control
 
@@ -648,6 +756,10 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
   * 论文：[ImgEdit](https://arxiv.org/abs/2505.20275) / [EditInspector](https://arxiv.org/abs/2506.09988)
   * 简介：不是 text-in-image 专用 benchmark，但对通用图像编辑模型评估很有参考价值。可作为评估 text editing 模型 instruction adherence、artifact、detail preservation 的外部补充。
 
+* **InfoEdit / WeGenEditBench**：
+  * 论文：[InfoEdit](https://arxiv.org/abs/2609.33286) / [WeGenEditBench](https://arxiv.org/abs/2610.41210)
+  * 简介：InfoEdit 专门评估修改信息图后是否正确重排关联元素；代码与数据已公开。WeGenEditBench 用共享的原子检查清单定位执行、保持和视觉质量错误，含文字密集编辑轨道；2,740 个实例和 148 类任务是全部轨道合计，不能解释为纯改字规模。
+
 ## 4. 数据集与 Benchmark
 
 ### 4.1 数据集
@@ -676,6 +788,10 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | **TextSculpt-Data** | 2026 | TextSculptor | 3.2M samples，1.2M OCR-verified T2I + 2M paired editing | scene text generation / editing |
 | **TextWand-72K** | 2026 | TextWand | 72K Chinese/English/symbol samples，>300 fonts | unified generation / replacement / removal |
 | **PosterText data** | 2026 | PosterText | large-scale e-commerce poster data with text-patch annotations | unified poster generation / patch editing |
+| **OpenTextEdit** | 2026 | TextRefine | 100K product-poster images，含文字属性、布局和商品 masks | poster text insertion / replacement；[论文](https://arxiv.org/abs/2608.19637)，下载未核实 |
+| **U14M-Filter（TextRIRO 训练源）** | — | TextRIRO / Union14M | 3.22M filtered real scene-text images；训练时在线构造扰动 | real-image self-supervised STE；[官方训练说明](https://github.com/YesianRohn/TextRIRO#training) |
+| **TextRIRO-3M** | 2026 | TextRIRO | 3M generated long-text images | downstream long-text recognition，非真实 STE 训练集；[data](https://huggingface.co/datasets/Yesianrohn/TextRIRO-3M) |
+| **STE25K** | 2026 | HarmonyText / RePair | 25K paired STE samples | scene text editing training；[论文](https://arxiv.org/abs/2611.17733)，下载未核实 |
 
 > ScenePair 等资源同时承担训练/评测用途；这里按“数据来源”收录，下面的 Benchmark 表再描述其评测协议。下载入口：[SCUT-Syn](https://github.com/HCIILAB/Scene-Text-Removal)、[SCUT-EnsText](https://github.com/HCIILAB/SCUT-EnsText)、[RS-STE-Dataset](https://huggingface.co/datasets/Nineve/RS-STE-Dataset)、[OTR](https://huggingface.co/datasets/cyberagent/OTR)、[TextPecker-1.5M](https://huggingface.co/datasets/CIawevy/TextPecker-1.5M)、[TextSculpt-Data](https://huggingface.co/datasets/dafbgd/TextSculpt-Data)。
 
@@ -702,11 +818,17 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | **TextWand-Bench** | 2026 | generation / replacement / removal，500 each | Chinese / English / symbols | [paper](https://arxiv.org/abs/2606.05730) |
 | **Constraint-discovery diagnostic** | 2026 | 461 cases / 19 secondary-constraint types | multilingual scenes | [Mind the Gap](https://arxiv.org/abs/2606.15982) |
 | **InfoTextBench** | 2026 | long, dense and rare-character rendering in generation/editing | — | [GlyphAnchor](https://arxiv.org/abs/2609.02349) |
-| **Text Refinement Bench** | 2026 | local text correction and image preservation | — | [PixText](https://arxiv.org/abs/2610.18284) |
-| **TEXTRENDERBENCH-ZH** | 2026 | per-character Chinese rendering correctness / 7,358 annotations | Chinese | [TextVerifier](https://arxiv.org/abs/2610.19551) |
+| **Text Refinement Bench** | 2026 | local text correction and image preservation | — | [data](https://huggingface.co/datasets/ATH-MaaS/TextRefinementBench) / [code](https://github.com/ATH-MaaS/PixText) |
+| **TEXTRENDERBENCH-ZH** | 2026 | per-character Chinese rendering correctness / 7,358 annotations | Chinese | [data](https://huggingface.co/datasets/ATH-MaaS/TextRenderBench-ZH) / [code](https://github.com/ATH-MaaS/TextVerifier) |
 | **VisSlideBench** | 2026 | slide generation and editing / 11 multidimensional metrics | — | [InfoVis](https://arxiv.org/abs/2610.16784) |
 | **UltraText Bench** | 2026 | dense multi-region visual text / 432 prompts | Chinese / English | [paper](https://arxiv.org/abs/2610.09823) / [code](https://github.com/LINs-lab/UltraText_Bench) |
 | **VTR-Bench** | 2026 | video visual text rendering / 300 prompts and 5 scenarios | — | [paper](https://arxiv.org/abs/2610.01499) / [code](https://github.com/hardenyu21/VTR-Bench) |
+| **InfoEdit** | 2026 | infographic reflow，1,000 images / 4,000 instructions / 8 relation families | — | [code](https://github.com/InfoEdit/InfoEdit) / [data](https://huggingface.co/datasets/InfoEdit/InfoEdit) |
+| **VTEdit** | 2026 | video text replacement / addition，288 clips / 440 trajectories | — | [paper](https://arxiv.org/abs/2609.34178)，数据发布待核实 |
+| **LongLongTextBench / RealLayoutArena** | 2026 | bilingual long-form rendering / end-to-end layout-rich generation | Chinese / English for LLTB | [MOSS-Image report](https://arxiv.org/abs/2610.23374) |
+| **RIROCommon** | 2026 | equal-length / variable-length editing across six text-recognition datasets | English / alphanumeric | [data](https://huggingface.co/datasets/Yesianrohn/RIROCommon) / [protocol](https://github.com/YesianRohn/TextRIRO#rirocommon) |
+| **WeGenEditBench** | 2026 | single-image / text-intensive / multi-reference，2,740 total instances / 148 task types | — | [paper](https://arxiv.org/abs/2610.41210) |
+| **HarmonyText-Bench** | 2026 | 155 high-resolution scenes，GT-free color / local-harmony assessment | Chinese / English | [paper](https://arxiv.org/abs/2611.17733)，下载未核实 |
 
 ### 4.3 常用评测指标
 
@@ -724,6 +846,9 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | 字形结构 | **Structural-anomaly score** | 检测错笔画、扭曲、模糊、错位等 OCR 可能忽略的结构错误 |
 | 文档结构 | **OCR parsing / reading order** | dense document 中布局和阅读顺序是否保持 |
 | 人类偏好 | **Human preference** | 综合文字正确、视觉自然、编辑保真 |
+| 颜色与局部和谐 | **CDD / HAM** | HarmonyText 的颜色分布差异和局部和谐模型；评估适用范围依其论文协议 |
+| 全局布局 | **Reflow / atomic checklist compliance** | InfoEdit 检查关联布局是否重排；WeGenEditBench 逐项验证编辑要求 |
+| 视频一致性 | **Per-frame text accuracy / temporal coherence** | 同时检查文字读回、透视轨迹与跨帧稳定性 |
 
 ## 5. 开源工具与项目
 
@@ -753,6 +878,15 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 | **UDiffText / UTDesign** | character-aware synthesis / bilingual graphic-design editing | [UDiffText](https://github.com/ZYM-PKU/UDiffText) / [UTDesign](https://github.com/ZYM-PKU/UTDesign) |
 | **VDE Bench / WeEdit** | document/text-centric editing datasets and evaluation | [VDE-Bench](https://github.com/zion-zion-zion/VDE-Bench) / [WeEdit](https://github.com/HuiZhang0812/WeEdit) |
 | **InfoVis / UltraText / VTR-Bench** | slide, dense visual text and video text evaluation | [InfoVis](https://github.com/VectorSpaceLab/InfoVis) / [UltraText Bench](https://github.com/LINs-lab/UltraText_Bench) / [VTR-Bench](https://github.com/hardenyu21/VTR-Bench) |
+| **TextCtrl** | style-preserving replacement / ScenePair protocol | [code](https://github.com/weichaozeng/TextCtrl) |
+| **TextRIRO** | real-image STE training / inference / RIROCommon | [code](https://github.com/YesianRohn/TextRIRO) / [model](https://huggingface.co/Yesianrohn/TextRIRO) |
+| **Qwen-Image-2.1 / Turbo** | RGBA generation / multi-reference editing / 8-step model | [code](https://github.com/QwenLM/Qwen-Image-2.1) / [Turbo](https://huggingface.co/Qwen/Qwen-Image-2.1-Turbo) |
+| **SenseNova-U1.5** | bilingual text-rich generation / editing / 8-step V2 LoRA | [code / releases](https://github.com/OpenSenseNova/SenseNova-U1) / [model](https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT) |
+| **MOSS-Image** | bilingual long-text and layout-controlled text-to-image | [code / Base / SFT](https://github.com/OpenMOSS/MOSS-Image) |
+| **NitroFusion2** | 1–2-step rendering / ControlNet-Union | [code](https://github.com/ChenDarYen/NitroFusion2) / [model](https://huggingface.co/ChenDY/NitroFusion2) |
+| **PixText** | local pixel-space text refinement / 4-step MeanFlow | [code](https://github.com/ATH-MaaS/PixText) / [model](https://huggingface.co/ATH-MaaS/PixText) |
+| **TextVerifier** | target-conditioned Chinese glyph verification / evaluation | [code](https://github.com/ATH-MaaS/TextVerifier) / [model](https://huggingface.co/ATH-MaaS/TextVerifier-CJK-CLIP) |
+| **InfoEdit** | infographic editing / reflow-aware evaluation | [code](https://github.com/InfoEdit/InfoEdit) / [data](https://huggingface.co/datasets/InfoEdit/InfoEdit) |
 
 ## 6. 相关方向
 
@@ -765,6 +899,8 @@ Diffusion 让 text-in-image editing 从局部替换走向开放域图像编辑�
 * **General Image Editing Evaluation**：[ImgEdit](https://arxiv.org/abs/2505.20275) 与 [EditInspector](https://arxiv.org/abs/2506.09988) 可补充 instruction adherence、artifact 和 detail preservation 评估。
 * **Structured Graphic Design**：[StructuredEdit](https://arxiv.org/abs/2607.04612) 与 [PosterHarness](https://arxiv.org/abs/2607.03006) 分别研究参数化 typography/layout 编辑和 scientific-poster generation audit，属于邻近方向。
 * **Benchmark and Evaluation**：从 OCR accuracy 走向 OCR + structural anomaly + VLM + human preference 的组合评测。
+* **Multi-turn Preservation / TailSteer**：[论文](https://arxiv.org/abs/2611.06741)研究将保持约束集中到去噪轨迹末段，通过自身 rollout 学习减少多轮累积漂移；属通用编辑后训练。已发布 [SenseNova-U1.5 TailSteer 完整权重](https://huggingface.co/sensenova/SenseNova-U1.5-8B-MoT-TailSteer)，不能据此推断它是专门的文字编辑模型。
+* **Native 4K Foundation Models**：MiniMax 于 2026-11-11 [宣布 H3-Image](https://www.minimax.io/blog/minimax-h3-image)，公开生成 / 编辑权重并支持最多 16 张参考图。此处作为高分辨率编辑基座背景记录，未将其通用能力等同于专用文字编辑评测结果。
 
 ## Contributing
 
